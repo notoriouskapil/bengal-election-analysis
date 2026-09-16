@@ -1,0 +1,191 @@
+# ============================================================
+# Bengal Election 2021 vs 2026 — Data Cleaning Script
+# Step 1 of 3 in the portfolio project pipeline
+# ============================================================
+# What this script does:
+#   1. Loads the raw/messy ECI Excel files for 2021 and 2026
+#   2. Standardizes column names and data types
+#   3. Removes NOTA rows and junk rows
+#   4. Extracts the winner for each constituency
+#   5. Saves 4 clean CSVs:
+#       - clean_2021.csv         (all candidates)
+#       - clean_2026.csv         (all candidates)
+#       - winners_2021.csv       (one row per constituency)
+#       - winners_2026.csv       (one row per constituency)
+# ============================================================
+
+import pandas as pd
+import os
+
+# ── Paths ────────────────────────────────────────────────────
+BASE = os.path.dirname(os.path.abspath(__file__))
+RAW_2021 = os.path.join(BASE, "bengal", "bengal 2021", "10-Detailed Results.xlsx")
+RAW_2026 = os.path.join(BASE, "bengal", "bengal 2026", "messy", "10-Detailed_Results_1778165388.xlsx")
+OUT_DIR   = os.path.join(BASE, "bengal", "clean_output")
+os.makedirs(OUT_DIR, exist_ok=True)
+
+# ── Party name normalisation map ─────────────────────────────
+# Unify common aliases so they match across years
+PARTY_MAP = {
+    "AITC": "TMC",
+    "INC":  "INC",
+    "BJP":  "BJP",
+    "CPI(M)": "CPI(M)",
+    "CPI":  "CPI",
+    "NCP":  "NCP",
+    "NOTA": "NOTA",
+}
+
+def normalise_party(p):
+    if pd.isna(p):
+        return "UNKNOWN"
+    p = str(p).strip().upper()
+    return PARTY_MAP.get(p, p)
+
+
+# ════════════════════════════════════════════════════════════
+# LOAD + CLEAN 2021
+# ════════════════════════════════════════════════════════════
+print("Loading 2021 data...")
+df21_raw = pd.read_excel(RAW_2021, header=None)
+
+# Real header is on row index 3 (4th row)
+df21 = df21_raw.iloc[3:].reset_index(drop=True)
+df21.columns = df21.iloc[0]
+df21 = df21[1:].reset_index(drop=True)
+
+# Keep only needed columns
+df21 = df21[[
+    "STATE/UT NAME", "AC NO.", "AC NAME",
+    "CANDIDATE NAME", "SEX", "AGE", "CATEGORY",
+    "PARTY", "GENERAL", "POSTAL", "TOTAL",
+    "% VOTES POLLED", "TOTAL ELECTORS"
+]].copy()
+
+df21.columns = [
+    "state", "ac_no", "ac_name",
+    "candidate", "gender", "age", "category",
+    "party", "general_votes", "postal_votes", "total_votes",
+    "vote_pct", "total_electors"
+]
+
+# Drop junk rows (summary/total rows have no ac_no or candidate)
+df21 = df21[df21["state"].notna() & df21["ac_no"].notna() & df21["candidate"].notna()].copy()
+df21["year"] = 2021
+
+# Numeric types
+for col in ["ac_no", "age", "general_votes", "postal_votes", "total_votes", "vote_pct", "total_electors"]:
+    df21[col] = pd.to_numeric(df21[col], errors="coerce")
+
+# Normalise party
+df21["party"] = df21["party"].apply(normalise_party)
+
+# Strip candidate number prefix (e.g. "1 ADHIKARY PARESH" → "ADHIKARY PARESH")
+df21["candidate"] = df21["candidate"].astype(str).str.replace(r"^\d+\s+", "", regex=True).str.strip()
+
+print(f"  2021 rows: {len(df21)} | constituencies: {df21['ac_no'].nunique()}")
+
+
+# ════════════════════════════════════════════════════════════
+# LOAD + CLEAN 2026
+# ════════════════════════════════════════════════════════════
+print("Loading 2026 data...")
+df26_raw = pd.read_excel(RAW_2026, header=None)
+
+# Header is on row index 3 (4th row)
+df26 = df26_raw.iloc[3:].reset_index(drop=True)
+df26.columns = df26.iloc[0]
+df26 = df26[1:].reset_index(drop=True)
+
+df26 = df26[[
+    "STATE/UT NAME", "AC NO.", "AC NAME",
+    "CANDIDATE NAME", "GENDER", "AGE", "CATEGORY",
+    "PARTY", "GENERAL", "POSTAL", "TOTAL",
+    "OVER VALID VOTES + NOTA", "TOTAL ELECTORS"
+]].copy()
+
+df26.columns = [
+    "state", "ac_no", "ac_name",
+    "candidate", "gender", "age", "category",
+    "party", "general_votes", "postal_votes", "total_votes",
+    "vote_pct", "total_electors"
+]
+
+df26 = df26[df26["state"].notna() & df26["ac_no"].notna() & df26["candidate"].notna()].copy()
+df26["year"] = 2026
+
+for col in ["ac_no", "age", "general_votes", "postal_votes", "total_votes", "vote_pct", "total_electors"]:
+    df26[col] = pd.to_numeric(df26[col], errors="coerce")
+
+df26["party"] = df26["party"].apply(normalise_party)
+df26["candidate"] = df26["candidate"].astype(str).str.replace(r"^\d+\s+", "", regex=True).str.strip()
+
+print(f"  2026 rows: {len(df26)} | constituencies: {df26['ac_no'].nunique()}")
+
+
+# ════════════════════════════════════════════════════════════
+# SAVE ALL-CANDIDATES CSVs
+# ════════════════════════════════════════════════════════════
+df21.to_csv(os.path.join(OUT_DIR, "clean_2021.csv"), index=False)
+df26.to_csv(os.path.join(OUT_DIR, "clean_2026.csv"), index=False)
+print("Saved: clean_2021.csv, clean_2026.csv")
+
+
+# ════════════════════════════════════════════════════════════
+# EXTRACT WINNERS (highest votes per constituency, excl. NOTA)
+# ════════════════════════════════════════════════════════════
+def get_winners(df):
+    # Exclude NOTA rows
+    candidates = df[df["party"] != "NOTA"].copy()
+    # Sort descending by votes, pick top 1 per constituency
+    winners = (
+        candidates.sort_values("total_votes", ascending=False)
+        .groupby("ac_no", as_index=False)
+        .first()
+    )
+    # Add runner-up votes to compute win margin
+    runner_up = (
+        candidates.sort_values("total_votes", ascending=False)
+        .groupby("ac_no")
+        .nth(1)[["ac_no", "total_votes", "candidate", "party"]]
+        .reset_index()
+        .rename(columns={
+            "total_votes": "runner_up_votes",
+            "candidate": "runner_up_candidate",
+            "party": "runner_up_party"
+        })
+    )
+    # runner_up has ac_no as index after groupby, need to handle
+    runner_up = (
+        candidates.sort_values("total_votes", ascending=False)
+        .groupby("ac_no", as_index=False)
+        .nth(1)[["ac_no", "total_votes", "candidate", "party"]]
+        .rename(columns={
+            "total_votes": "runner_up_votes",
+            "candidate": "runner_up_candidate",
+            "party": "runner_up_party"
+        })
+    )
+    winners = winners.merge(runner_up, on="ac_no", how="left")
+    winners["win_margin"] = winners["total_votes"] - winners["runner_up_votes"]
+    winners["win_margin_pct"] = (winners["win_margin"] / winners["total_electors"] * 100).round(2)
+    return winners
+
+winners21 = get_winners(df21)
+winners26 = get_winners(df26)
+
+winners21.to_csv(os.path.join(OUT_DIR, "winners_2021.csv"), index=False)
+winners26.to_csv(os.path.join(OUT_DIR, "winners_2026.csv"), index=False)
+print("Saved: winners_2021.csv, winners_2026.csv")
+
+# ════════════════════════════════════════════════════════════
+# QUICK VALIDATION SUMMARY
+# ════════════════════════════════════════════════════════════
+print("\n── Validation Summary ───────────────────────────────")
+print(f"2021 total constituencies: {winners21['ac_no'].nunique()}")
+print(f"2026 total constituencies: {winners26['ac_no'].nunique()}")
+print("\n2021 Seats Won by Party:")
+print(winners21["party"].value_counts().head(10).to_string())
+print("\n2026 Seats Won by Party:")
+print(winners26["party"].value_counts().head(10).to_string())
+print("\n✓ Cleaning complete. CSVs saved to:", OUT_DIR)

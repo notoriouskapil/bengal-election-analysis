@@ -1,0 +1,295 @@
+ac_no,ac_name,reservation,is_reserved,ac_name_2021,ac_name_2026,district,region
+1,MEKLIGANJ,SC,1,Mekliganj,MEKLIGANJ (SC),Cooch Behar,North Bengal
+2,MATHABHANGA,SC,1,Mathabhanga,MATHABHANGA (SC),Cooch Behar,North Bengal
+3,COOCHBEHAR UTTAR,SC,1,COOCHBEHAR UTTAR,COOCHBEHAR UTTAR (SC),Cooch Behar,North Bengal
+4,COOCHBEHAR DAKSHIN,GEN,0,Coochbehar Dakshin,COOCHBEHAR DAKSHIN,Cooch Behar,North Bengal
+5,SITALKUCHI,SC,1,Sitalkuchi,SITALKUCHI (SC),Cooch Behar,North Bengal
+6,SITAI,SC,1,Sitai,SITAI (SC),Cooch Behar,North Bengal
+7,DINHATA,GEN,0,Dinhata,DINHATA,Cooch Behar,North Bengal
+8,NATABARI,GEN,0,Natabari,NATABARI,Cooch Behar,North Bengal
+9,TUFANGANJ,GEN,0,Tufanganj,TUFANGANJ,Cooch Behar,North Bengal
+10,KUMARGRAM,ST,1,Kumargram,KUMARGRAM (ST),Alipurduar,North Bengal
+11,KALCHINI,ST,1,Kalchini,KALCHINI (ST),Alipurduar,North Bengal
+12,ALIPURDUARS,GEN,0,Alipurduars,ALIPURDUARS,Alipurduar,North Bengal
+13,FALAKATA,SC,1,Falakata,FALAKATA (SC),Alipurduar,North Bengal
+14,MADARIHAT,ST,1,Madarihat,MADARIHAT (ST),Alipurduar,North Bengal
+15,DHUPGURI,SC,1,Dhupguri,DHUPGURI (SC),Jalpaiguri,North Bengal
+16,MAYNAGURI,SC,1,Maynaguri,MAYNAGURI (SC),Jalpaiguri,North Bengal
+17,JALPAIGURI,SC,1,Jalpaiguri,JALPAIGURI (SC),Jalpaiguri,North Bengal
+18,RAJGANJ,SC,1,Rajganj,RAJGANJ (SC),Jalpaiguri,North Bengal
+19,DABGRAM-FULBARI,GEN,0,Dabgram-Fulbari,DABGRAM-FULBARI,Jalpaiguri,North Bengal
+20,MAL,ST,1,Mal,MAL (ST),Jalpaiguri,North Bengal
+21,NAGRAKATA,ST,1,Nagrakata,NAGRAKATA (ST),Jalpaiguri,North Bengal
+22,KALIMPONG,GEN,0,Kalimpong,KALIMPONG,Kalimpong,North Bengal
+23,DARJEELING,GEN,0,Darjeeling,DARJEELING,Darjeeling,North Bengal
+24,KURSEONG,GEN,0,Kurseong,KURSEONG,Darjeeling,North Bengal
+25,MATIGARA-NAXALBARI,SC,1,Matigara-Naxalbari,MATIGARA-NAXALBARI (SC),Darjeeling,North Bengal
+26,SILIGURI,GEN,0,Siliguri,SILIGURI,Darjeeling,North Bengal
+27,PHANSIDEWA,ST,1,Phansidewa,PHANSIDEWA (ST),Darjeeling,North Bengal
+28,CHOPRA,GEN,0,Chopra,CHOPRA,Uttar Dinajpur,North Bengal
+29,ISLAMPUR,GEN,0,Islampur,ISLAMPUR,Uttar Dinajpur,North Bengal
+30,GOALPOKHAR,GEN,0,Goalpokhar,GOALPOKHAR,Uttar Dinajpur,North Bengal
+31,CHAKULIA,GEN,0,Chakulia,CHAKULIA,Uttar Dinajpur,North Bengal
+32,KARANDIGHI,GEN,0,Karandighi,KARANDIGHI,Uttar Dinajpur,North Bengal
+33,HEMTABAD,SC,1,Hemtabad,HEMTABAD (SC),Uttar Dinajpur,North Bengal
+34,KALIAGANJ,SC,1,Kaliaganj,KALIAGANJ (SC),Uttar Dinajpur,North Bengal
+35,RAIGANJ,GEN,0,Raiganj,RAIGANJ,Uttar Dinajpur,North Bengal
+36,ITAHAR,GEN,0,Itahar,ITAHAR,Uttar Dinajpur,North Bengal
+37,KUSHMANDI,SC,1,Kushmandi,KUSHMANDI (SC),Dakshin Dinajpur,North Bengal
+38,KUMARGANJ,GEN,0,Kumarganj,KUMARGANJ,Dakshin Dinajpur,North Bengal
+39,BALURGHAT,GEN,0,Balurghat,BALURGHAT,Dakshin Dinajpur,North Bengal
+40,TAPAN,ST,1,Tapan,TAPAN (ST),Dakshin Dinajpur,North Bengal
+41,GANGARAMPUR,SC,1,Gangarampur,GANGARAMPUR (SC),Dakshin Dinajpur,North Bengal
+42,HARIRAMPUR,GEN,0,Harirampur,HARIRAMPUR,Dakshin Dinajpur,North Bengal
+43,HABIBPUR,ST,1,Habibpur,HABIBPUR (ST),Malda,North Bengal
+44,GAZOLE,SC,1,Gazole,GAZOLE (SC),Malda,North Bengal
+45,CHANCHAL,GEN,0,Chanchal,CHANCHAL,Malda,North Bengal
+46,HARISCHANDRAPUR,GEN,0,Harischandrapur,HARISCHANDRAPUR,Malda,North Bengal
+47,MALATIPUR,GEN,0,Malatipur,MALATIPUR,Malda,North Bengal
+48,RATUA,GEN,0,Ratua,RATUA,Malda,North Bengal
+49,MANIKCHAK,GEN,0,Manikchak,MANIKCHAK,Malda,North Bengal
+50,MALDAHA,SC,1,Maldaha,MALDAHA (SC),Malda,North Bengal
+51,ENGLISH BAZAR,GEN,0,English Bazar,ENGLISH BAZAR,Malda,North Bengal
+52,MOTHABARI,GEN,0,Mothabari,MOTHABARI,Malda,North Bengal
+53,SUJAPUR,GEN,0,Sujapur,SUJAPUR,Malda,North Bengal
+54,BAISNABNAGAR,GEN,0,Baisnabnagar,BAISNABNAGAR,Malda,North Bengal
+55,FARAKKA,GEN,0,Farakka,FARAKKA,Murshidabad,Murshidabad-Nadia
+56,SAMSERGANJ,GEN,0,Samserganj,SAMSERGANJ,Murshidabad,Murshidabad-Nadia
+57,SUTI,GEN,0,Suti,SUTI,Murshidabad,Murshidabad-Nadia
+58,JANGIPUR,GEN,0,Jangipur,JANGIPUR,Murshidabad,Murshidabad-Nadia
+59,RAGHUNATHGANJ,GEN,0,RaghunathGanj,RAGHUNATHGANJ,Murshidabad,Murshidabad-Nadia
+60,SAGARDIGHI,GEN,0,Sagardighi,SAGARDIGHI,Murshidabad,Murshidabad-Nadia
+61,LALGOLA,GEN,0,Lalgola,LALGOLA,Murshidabad,Murshidabad-Nadia
+62,BHAGAWANGOLA,GEN,0,Bhagawangola,BHAGAWANGOLA,Murshidabad,Murshidabad-Nadia
+63,RANINAGAR,GEN,0,Raninagar,RANINAGAR,Murshidabad,Murshidabad-Nadia
+64,MURSHIDABAD,GEN,0,Murshidabad,MURSHIDABAD,Murshidabad,Murshidabad-Nadia
+65,NABAGRAM,SC,1,Nabagram,NABAGRAM (SC),Murshidabad,Murshidabad-Nadia
+66,KHARGRAM,SC,1,Khargram,KHARGRAM (SC),Murshidabad,Murshidabad-Nadia
+67,BURWAN,SC,1,Burwan,BURWAN (SC),Murshidabad,Murshidabad-Nadia
+68,KANDI,GEN,0,Kandi,KANDI,Murshidabad,Murshidabad-Nadia
+69,BHARATPUR,GEN,0,Bharatpur,BHARATPUR,Murshidabad,Murshidabad-Nadia
+70,REJINAGAR,GEN,0,Rejinagar,REJINAGAR,Murshidabad,Murshidabad-Nadia
+71,BELDANGA,GEN,0,Beldanga,BELDANGA,Murshidabad,Murshidabad-Nadia
+72,BAHARAMPUR,GEN,0,Baharampur,BAHARAMPUR,Murshidabad,Murshidabad-Nadia
+73,HARIHARPARA,GEN,0,Hariharpara,HARIHARPARA,Murshidabad,Murshidabad-Nadia
+74,NOWDA,GEN,0,Nowda,NOWDA,Murshidabad,Murshidabad-Nadia
+75,DOMKAL,GEN,0,Domkal,DOMKAL,Murshidabad,Murshidabad-Nadia
+76,JALANGI,GEN,0,Jalangi,JALANGI,Murshidabad,Murshidabad-Nadia
+77,KARIMPUR,GEN,0,Karimpur,KARIMPUR,Nadia,Murshidabad-Nadia
+78,TEHATTA,GEN,0,Tehatta,TEHATTA,Nadia,Murshidabad-Nadia
+79,PALASHIPARA,GEN,0,Palashipara,PALASHIPARA,Nadia,Murshidabad-Nadia
+80,KALIGANJ,GEN,0,Kaliganj,KALIGANJ,Nadia,Murshidabad-Nadia
+81,NAKASHIPARA,GEN,0,Nakashipara,NAKASHIPARA,Nadia,Murshidabad-Nadia
+82,CHAPRA,GEN,0,Chapra,CHAPRA,Nadia,Murshidabad-Nadia
+83,KRISHNANAGAR UTTAR,GEN,0,Krishnanagar Uttar,KRISHNANAGAR UTTAR,Nadia,Murshidabad-Nadia
+84,NABADWIP,GEN,0,Nabadwip,NABADWIP,Nadia,Murshidabad-Nadia
+85,KRISHNANAGAR DAKSHIN,GEN,0,Krishnanagar Dakshin,KRISHNANAGAR DAKSHIN,Nadia,Murshidabad-Nadia
+86,SANTIPUR,GEN,0,Santipur,SANTIPUR,Nadia,Murshidabad-Nadia
+87,RANAGHAT UTTAR PASCHIM,GEN,0,Ranaghat Uttar Paschim,RANAGHAT UTTAR PASCHIM,Nadia,Murshidabad-Nadia
+88,KRISHNAGANJ,SC,1,Krishnaganj,KRISHNAGANJ (SC),Nadia,Murshidabad-Nadia
+89,RANAGHAT UTTAR PURBA,SC,1,Ranaghat Uttar Purba,RANAGHAT UTTAR PURBA (SC),Nadia,Murshidabad-Nadia
+90,RANAGHAT DAKSHIN,SC,1,Ranaghat Dakshin,RANAGHAT DAKSHIN (SC),Nadia,Murshidabad-Nadia
+91,CHAKDAHA,GEN,0,Chakdaha,CHAKDAHA,Nadia,Murshidabad-Nadia
+92,KALYANI,SC,1,Kalyani,KALYANI (SC),Nadia,Murshidabad-Nadia
+93,HARINGHATA,SC,1,Haringhata,HARINGHATA (SC),Nadia,Murshidabad-Nadia
+94,BAGDA,SC,1,Bagda,BAGDA (SC),North 24 Parganas,North 24 Parganas
+95,BANGAON UTTAR,SC,1,Bangaon Uttar,BANGAON UTTAR (SC),North 24 Parganas,North 24 Parganas
+96,BANGAON DAKSHIN,SC,1,Bangaon Dakshin,BANGAON DAKSHIN (SC),North 24 Parganas,North 24 Parganas
+97,GAIGHATA,SC,1,Gaighata,GAIGHATA (SC),North 24 Parganas,North 24 Parganas
+98,SWARUPNAGAR,SC,1,Swarupnagar,SWARUPNAGAR (SC),North 24 Parganas,North 24 Parganas
+99,BADURIA,GEN,0,Baduria,BADURIA,North 24 Parganas,North 24 Parganas
+100,HABRA,GEN,0,Habra,HABRA,North 24 Parganas,North 24 Parganas
+101,ASHOKNAGAR,GEN,0,Ashoknagar,ASHOKNAGAR,North 24 Parganas,North 24 Parganas
+102,AMDANGA,GEN,0,Amdanga,AMDANGA,North 24 Parganas,North 24 Parganas
+103,BIJPUR,GEN,0,Bijpur,BIJPUR,North 24 Parganas,North 24 Parganas
+104,NAIHATI,GEN,0,Naihati,NAIHATI,North 24 Parganas,North 24 Parganas
+105,BHATPARA,GEN,0,Bhatpara,BHATPARA,North 24 Parganas,North 24 Parganas
+106,JAGATDAL,GEN,0,Jagatdal,JAGATDAL,North 24 Parganas,North 24 Parganas
+107,NOAPARA,GEN,0,Noapara,NOAPARA,North 24 Parganas,North 24 Parganas
+108,BARRACKPUR,GEN,0,Barrackpur,BARRACKPUR,North 24 Parganas,North 24 Parganas
+109,KHARDAHA,GEN,0,Khardaha,KHARDAHA,North 24 Parganas,North 24 Parganas
+110,DUM DUM UTTAR,GEN,0,Dum Dum Uttar,DUM DUM UTTAR,North 24 Parganas,North 24 Parganas
+111,PANIHATI,GEN,0,Panihati,PANIHATI,North 24 Parganas,North 24 Parganas
+112,KAMARHATI,GEN,0,Kamarhati,KAMARHATI,North 24 Parganas,North 24 Parganas
+113,BARANAGAR,GEN,0,Baranagar,BARANAGAR,North 24 Parganas,North 24 Parganas
+114,DUM DUM,GEN,0,Dum Dum,DUM DUM,North 24 Parganas,North 24 Parganas
+115,RAJARHAT NEW TOWN,GEN,0,Rajarhat New Town,RAJARHAT NEW TOWN,North 24 Parganas,North 24 Parganas
+116,BIDHANNAGAR,GEN,0,Bidhannagar,BIDHANNAGAR,North 24 Parganas,North 24 Parganas
+117,RAJARHAT GOPALPUR,GEN,0,Rajarhat Gopalpur,RAJARHAT GOPALPUR,North 24 Parganas,North 24 Parganas
+118,MADHYAMGRAM,GEN,0,Madhyamgram,MADHYAMGRAM,North 24 Parganas,North 24 Parganas
+119,BARASAT,GEN,0,Barasat,BARASAT,North 24 Parganas,North 24 Parganas
+120,DEGANGA,GEN,0,Deganga,DEGANGA,North 24 Parganas,North 24 Parganas
+121,HAROA,GEN,0,Haroa,HAROA,North 24 Parganas,North 24 Parganas
+122,MINAKHAN,SC,1,Minakhan,MINAKHAN (SC),North 24 Parganas,North 24 Parganas
+123,SANDESHKHALI,ST,1,Sandeshkhali,SANDESHKHALI (ST),North 24 Parganas,North 24 Parganas
+124,BASIRHAT DAKSHIN,GEN,0,Basirhat Dakshin,BASIRHAT DAKSHIN,North 24 Parganas,North 24 Parganas
+125,BASIRHAT UTTAR,GEN,0,Basirhat Uttar,BASIRHAT UTTAR,North 24 Parganas,North 24 Parganas
+126,HINGALGANJ,SC,1,Hingalganj,HINGALGANJ (SC),North 24 Parganas,North 24 Parganas
+127,GOSABA,SC,1,Gosaba,GOSABA (SC),South 24 Parganas,South 24 Parganas
+128,BASANTI,SC,1,Basanti,BASANTI (SC),South 24 Parganas,South 24 Parganas
+129,KULTALI,SC,1,Kultali,KULTALI (SC),South 24 Parganas,South 24 Parganas
+130,PATHARPRATIMA,GEN,0,Patharpratima,PATHARPRATIMA,South 24 Parganas,South 24 Parganas
+131,KAKDWIP,GEN,0,Kakdwip,KAKDWIP,South 24 Parganas,South 24 Parganas
+132,SAGAR,GEN,0,Sagar,SAGAR,South 24 Parganas,South 24 Parganas
+133,KULPI,GEN,0,Kulpi,KULPI,South 24 Parganas,South 24 Parganas
+134,RAIDIGHI,GEN,0,Raidighi,RAIDIGHI,South 24 Parganas,South 24 Parganas
+135,MANDIRBAZAR,SC,1,Mandirbazar,MANDIRBAZAR (SC),South 24 Parganas,South 24 Parganas
+136,JAYNAGAR,SC,1,Jaynagar,JAYNAGAR (SC),South 24 Parganas,South 24 Parganas
+137,BARUIPUR PURBA,SC,1,Baruipur Purba,BARUIPUR PURBA (SC),South 24 Parganas,South 24 Parganas
+138,CANNING PASCHIM,SC,1,Canning Paschim,CANNING PASCHIM (SC),South 24 Parganas,South 24 Parganas
+139,CANNING PURBA,GEN,0,Canning Purba,CANNING PURBA,South 24 Parganas,South 24 Parganas
+140,BARUIPUR PASCHIM,GEN,0,Baruipur Paschim,BARUIPUR PASCHIM,South 24 Parganas,South 24 Parganas
+141,MAGRAHAT PURBA,SC,1,Magrahat Purba,MAGRAHAT PURBA (SC),South 24 Parganas,South 24 Parganas
+142,MAGRAHAT PASCHIM,GEN,0,Magrahat Paschim,MAGRAHAT PASCHIM,South 24 Parganas,South 24 Parganas
+143,DIAMOND HARBOUR,GEN,0,Diamond Harbour,DIAMOND HARBOUR,South 24 Parganas,South 24 Parganas
+144,FALTA,GEN,0,Falta,FALTA,South 24 Parganas,South 24 Parganas
+145,SATGACHHIA,GEN,0,Satgachhia,SATGACHHIA,South 24 Parganas,South 24 Parganas
+146,BISHNUPUR,SC,1,Bishnupur,BISHNUPUR (SC),South 24 Parganas,South 24 Parganas
+147,SONARPUR DAKSHIN,GEN,0,Sonarpur Dakshin,SONARPUR DAKSHIN,South 24 Parganas,South 24 Parganas
+148,BHANGAR,GEN,0,Bhangar,BHANGAR,South 24 Parganas,South 24 Parganas
+149,KASBA,GEN,0,Kasba,KASBA,South 24 Parganas,South 24 Parganas
+150,JADAVPUR,GEN,0,Jadavpur,JADAVPUR,South 24 Parganas,South 24 Parganas
+151,SONARPUR UTTAR,GEN,0,Sonarpur Uttar,SONARPUR UTTAR,South 24 Parganas,South 24 Parganas
+152,TOLLYGANJ,GEN,0,Tollyganj,TOLLYGANJ,South 24 Parganas,South 24 Parganas
+153,BEHALA PURBA,GEN,0,Behala Purba,BEHALA PURBA,South 24 Parganas,South 24 Parganas
+154,BEHALA PASCHIM,GEN,0,Behala Paschim,BEHALA PASCHIM,South 24 Parganas,South 24 Parganas
+155,MAHESHTALA,GEN,0,Maheshtala,MAHESHTALA,South 24 Parganas,South 24 Parganas
+156,BUDGE BUDGE,GEN,0,Budge Budge,BUDGE BUDGE,South 24 Parganas,South 24 Parganas
+157,METIABURUZ,GEN,0,Metiaburuz,METIABURUZ,South 24 Parganas,South 24 Parganas
+158,KOLKATA PORT,GEN,0,Kolkata Port,KOLKATA PORT,Kolkata,Kolkata & Howrah
+159,BHABANIPUR,GEN,0,Bhabanipur,BHABANIPUR,Kolkata,Kolkata & Howrah
+160,RASHBEHARI,GEN,0,Rashbehari,RASHBEHARI,Kolkata,Kolkata & Howrah
+161,BALLYGUNGE,GEN,0,Ballygunge,BALLYGUNGE,Kolkata,Kolkata & Howrah
+162,CHOWRANGEE,GEN,0,Chowrangee,CHOWRANGEE,Kolkata,Kolkata & Howrah
+163,ENTALLY,GEN,0,Entally,ENTALLY,Kolkata,Kolkata & Howrah
+164,BELEGHATA,GEN,0,Beleghata,BELEGHATA,Kolkata,Kolkata & Howrah
+165,JORASANKO,GEN,0,Jorasanko,JORASANKO,Kolkata,Kolkata & Howrah
+166,SHYAMPUKUR,GEN,0,Shyampukur,SHYAMPUKUR,Kolkata,Kolkata & Howrah
+167,MANIKTALA,GEN,0,Maniktala,MANIKTALA,Kolkata,Kolkata & Howrah
+168,KASHIPUR-BELGACHHIA,GEN,0,Kashipur-Belgachhia,KASHIPUR-BELGACHHIA,Kolkata,Kolkata & Howrah
+169,BALLY,GEN,0,Bally,BALLY,Howrah,Kolkata & Howrah
+170,HOWRAH UTTAR,GEN,0,Howrah Uttar,HOWRAH UTTAR,Howrah,Kolkata & Howrah
+171,HOWRAH MADHYA,GEN,0,Howrah Madhya,HOWRAH MADHYA,Howrah,Kolkata & Howrah
+172,SHIBPUR,GEN,0,Shibpur,SHIBPUR,Howrah,Kolkata & Howrah
+173,HOWRAH DAKSHIN,GEN,0,Howrah Dakshin,HOWRAH DAKSHIN,Howrah,Kolkata & Howrah
+174,SANKRAIL,SC,1,Sankrail,SANKRAIL (SC),Howrah,Kolkata & Howrah
+175,PANCHLA,GEN,0,Panchla,PANCHLA,Howrah,Kolkata & Howrah
+176,ULUBERIA PURBA,GEN,0,Uluberia Purba,ULUBERIA PURBA,Howrah,Kolkata & Howrah
+177,ULUBERIA UTTAR,SC,1,Uluberia Uttar,ULUBERIA UTTAR (SC),Howrah,Kolkata & Howrah
+178,ULUBERIA DAKSHIN,GEN,0,Uluberia Dakshin,ULUBERIA DAKSHIN,Howrah,Kolkata & Howrah
+179,SHYAMPUR,GEN,0,Shyampur,SHYAMPUR,Howrah,Kolkata & Howrah
+180,BAGNAN,GEN,0,Bagnan,BAGNAN,Howrah,Kolkata & Howrah
+181,AMTA,GEN,0,Amta,AMTA,Howrah,Kolkata & Howrah
+182,UDAYNARAYANPUR,GEN,0,Udaynarayanpur,UDAYNARAYANPUR,Howrah,Kolkata & Howrah
+183,JAGATBALLAVPUR,GEN,0,Jagatballavpur,JAGATBALLAVPUR,Howrah,Kolkata & Howrah
+184,DOMJUR,GEN,0,Domjur,DOMJUR,Howrah,Kolkata & Howrah
+185,UTTARPARA,GEN,0,Uttarpara,UTTARPARA,Hooghly,Hooghly & Purba Medinipur
+186,SREERAMPUR,GEN,0,Sreerampur,SREERAMPUR,Hooghly,Hooghly & Purba Medinipur
+187,CHAMPDANI,GEN,0,Champdani,CHAMPDANI,Hooghly,Hooghly & Purba Medinipur
+188,SINGUR,GEN,0,Singur,SINGUR,Hooghly,Hooghly & Purba Medinipur
+189,CHANDANNAGAR,GEN,0,Chandannagar,CHANDANNAGAR,Hooghly,Hooghly & Purba Medinipur
+190,CHUNCHURA,GEN,0,Chunchura,CHUNCHURA,Hooghly,Hooghly & Purba Medinipur
+191,BALAGARH,SC,1,Balagarh,BALAGARH (SC),Hooghly,Hooghly & Purba Medinipur
+192,PANDUA,GEN,0,Pandua,PANDUA,Hooghly,Hooghly & Purba Medinipur
+193,SAPTAGRAM,GEN,0,Saptagram,SAPTAGRAM,Hooghly,Hooghly & Purba Medinipur
+194,CHANDITALA,GEN,0,Chanditala,CHANDITALA,Hooghly,Hooghly & Purba Medinipur
+195,JANGIPARA,GEN,0,Jangipara,JANGIPARA,Hooghly,Hooghly & Purba Medinipur
+196,HARIPAL,GEN,0,Haripal,HARIPAL,Hooghly,Hooghly & Purba Medinipur
+197,DHANEKHALI,SC,1,Dhanekhali,DHANEKHALI (SC),Hooghly,Hooghly & Purba Medinipur
+198,TARAKESWAR,GEN,0,Tarakeswar,TARAKESWAR,Hooghly,Hooghly & Purba Medinipur
+199,PURSURAH,GEN,0,Pursurah,PURSURAH,Hooghly,Hooghly & Purba Medinipur
+200,ARAMBAG,SC,1,Arambag,ARAMBAG (SC),Hooghly,Hooghly & Purba Medinipur
+201,GOGHAT,SC,1,Goghat,GOGHAT (SC),Hooghly,Hooghly & Purba Medinipur
+202,KHANAKUL,GEN,0,Khanakul,KHANAKUL,Hooghly,Hooghly & Purba Medinipur
+203,TAMLUK,GEN,0,Tamluk,TAMLUK,Purba Medinipur,Hooghly & Purba Medinipur
+204,PANSKURA PURBA,GEN,0,Panskura Purba,PANSKURA PURBA,Purba Medinipur,Hooghly & Purba Medinipur
+205,PANSKURA PASCHIM,GEN,0,Panskura Paschim,PANSKURA PASCHIM,Purba Medinipur,Hooghly & Purba Medinipur
+206,MOYNA,GEN,0,Moyna,MOYNA,Purba Medinipur,Hooghly & Purba Medinipur
+207,NANDAKUMAR,GEN,0,Nandakumar,NANDAKUMAR,Purba Medinipur,Hooghly & Purba Medinipur
+208,MAHISADAL,GEN,0,Mahisadal,MAHISADAL,Purba Medinipur,Hooghly & Purba Medinipur
+209,HALDIA,SC,1,Haldia,HALDIA (SC),Purba Medinipur,Hooghly & Purba Medinipur
+210,NANDIGRAM,GEN,0,Nandigram,NANDIGRAM,Purba Medinipur,Hooghly & Purba Medinipur
+211,CHANDIPUR,GEN,0,Chandipur,CHANDIPUR,Purba Medinipur,Hooghly & Purba Medinipur
+212,PATASHPUR,GEN,0,Patashpur,PATASHPUR,Purba Medinipur,Hooghly & Purba Medinipur
+213,KANTHI UTTAR,GEN,0,Kanthi Uttar,KANTHI UTTAR,Purba Medinipur,Hooghly & Purba Medinipur
+214,BHAGABANPUR,GEN,0,Bhagabanpur,BHAGABANPUR,Purba Medinipur,Hooghly & Purba Medinipur
+215,KHEJURI,SC,1,Khejuri,KHEJURI (SC),Purba Medinipur,Hooghly & Purba Medinipur
+216,KANTHI DAKSHIN,GEN,0,Kanthi Dakshin,KANTHI DAKSHIN,Purba Medinipur,Hooghly & Purba Medinipur
+217,RAMNAGAR,GEN,0,Ramnagar,RAMNAGAR,Purba Medinipur,Hooghly & Purba Medinipur
+218,EGRA,GEN,0,Egra,EGRA,Purba Medinipur,Hooghly & Purba Medinipur
+219,DANTAN,GEN,0,Dantan,DANTAN,Paschim Medinipur,Jangalmahal
+220,NAYAGRAM,ST,1,Nayagram,NAYAGRAM (ST),Jhargram,Jangalmahal
+221,GOPIBALLAVPUR,GEN,0,Gopiballavpur,GOPIBALLAVPUR,Jhargram,Jangalmahal
+222,JHARGRAM,GEN,0,Jhargram,JHARGRAM,Jhargram,Jangalmahal
+223,KESHIARY,ST,1,Keshiary,KESHIARY (ST),Paschim Medinipur,Jangalmahal
+224,KHARAGPUR SADAR,GEN,0,Kharagpur Sadar,KHARAGPUR SADAR,Paschim Medinipur,Jangalmahal
+225,NARAYANGARH,GEN,0,Narayangarh,NARAYANGARH,Paschim Medinipur,Jangalmahal
+226,SABANG,GEN,0,Sabang,SABANG,Paschim Medinipur,Jangalmahal
+227,PINGLA,GEN,0,Pingla,PINGLA,Paschim Medinipur,Jangalmahal
+228,KHARAGPUR,GEN,0,Kharagpur,KHARAGPUR,Paschim Medinipur,Jangalmahal
+229,DEBRA,GEN,0,Debra,DEBRA,Paschim Medinipur,Jangalmahal
+230,DASPUR,GEN,0,Daspur,DASPUR,Paschim Medinipur,Jangalmahal
+231,GHATAL,SC,1,Ghatal,GHATAL (SC),Paschim Medinipur,Jangalmahal
+232,CHANDRAKONA,SC,1,Chandrakona,CHANDRAKONA (SC),Paschim Medinipur,Jangalmahal
+233,GARBETA,GEN,0,Garbeta,GARBETA,Paschim Medinipur,Jangalmahal
+234,SALBONI,GEN,0,Salboni,SALBONI,Paschim Medinipur,Jangalmahal
+235,KESHPUR,SC,1,Keshpur,KESHPUR (SC),Paschim Medinipur,Jangalmahal
+236,MEDINIPUR,GEN,0,Medinipur,MEDINIPUR,Paschim Medinipur,Jangalmahal
+237,BINPUR,ST,1,Binpur,BINPUR (ST),Jhargram,Jangalmahal
+238,BANDWAN,ST,1,Bandwan,BANDWAN (ST),Purulia,Jangalmahal
+239,BALARAMPUR,GEN,0,Balarampur,BALARAMPUR,Purulia,Jangalmahal
+240,BAGHMUNDI,GEN,0,Baghmundi,BAGHMUNDI,Purulia,Jangalmahal
+241,JOYPUR,GEN,0,Joypur,JOYPUR,Purulia,Jangalmahal
+242,PURULIA,GEN,0,Purulia,PURULIA,Purulia,Jangalmahal
+243,MANBAZAR,ST,1,Manbazar,MANBAZAR (ST),Purulia,Jangalmahal
+244,KASHIPUR,GEN,0,Kashipur,KASHIPUR,Purulia,Jangalmahal
+245,PARA,SC,1,Para,PARA (SC),Purulia,Jangalmahal
+246,RAGHUNATHPUR,SC,1,Raghunathpur,RAGHUNATHPUR (SC),Purulia,Jangalmahal
+247,SALTORA,SC,1,Saltora,SALTORA (SC),Bankura,Jangalmahal
+248,CHHATNA,GEN,0,Chhatna,CHHATNA,Bankura,Jangalmahal
+249,RANIBANDH,ST,1,Ranibandh,RANIBANDH (ST),Bankura,Jangalmahal
+250,RAIPUR,ST,1,Raipur,RAIPUR (ST),Bankura,Jangalmahal
+251,TALDANGRA,GEN,0,Taldangra,TALDANGRA,Bankura,Jangalmahal
+252,BANKURA,GEN,0,Bankura,BANKURA,Bankura,Jangalmahal
+253,BARJORA,GEN,0,Barjora,BARJORA,Bankura,Jangalmahal
+254,ONDA,GEN,0,Onda,ONDA,Bankura,Jangalmahal
+255,BISHNUPUR,GEN,0,Bishnupur,BISHNUPUR,Bankura,Jangalmahal
+256,KATULPUR,SC,1,Katulpur,KATULPUR (SC),Bankura,Jangalmahal
+257,INDUS,SC,1,Indus,INDUS (SC),Bankura,Jangalmahal
+258,SONAMUKHI,SC,1,Sonamukhi,SONAMUKHI (SC),Bankura,Jangalmahal
+259,KHANDAGHOSH,SC,1,Khandaghosh,KHANDAGHOSH (SC),Purba Bardhaman,Rarh Bengal
+260,BARDHAMAN DAKSHIN,GEN,0,Bardhaman Dakshin,BARDHAMAN DAKSHIN,Purba Bardhaman,Rarh Bengal
+261,RAINA,SC,1,Raina,RAINA (SC),Purba Bardhaman,Rarh Bengal
+262,JAMALPUR,SC,1,Jamalpur,JAMALPUR (SC),Purba Bardhaman,Rarh Bengal
+263,MONTESWAR,GEN,0,Monteswar,MONTESWAR,Purba Bardhaman,Rarh Bengal
+264,KALNA,SC,1,Kalna,KALNA (SC),Purba Bardhaman,Rarh Bengal
+265,MEMARI,GEN,0,Memari,MEMARI,Purba Bardhaman,Rarh Bengal
+266,BARDHAMAN UTTAR,SC,1,Bardhaman Uttar,BARDHAMAN UTTAR (SC),Purba Bardhaman,Rarh Bengal
+267,BHATAR,GEN,0,Bhatar,BHATAR,Purba Bardhaman,Rarh Bengal
+268,PURBASTHALI DAKSHIN,GEN,0,Purbasthali Dakshin,PURBASTHALI DAKSHIN,Purba Bardhaman,Rarh Bengal
+269,PURBASTHALI UTTAR,GEN,0,Purbasthali Uttar,PURBASTHALI UTTAR,Purba Bardhaman,Rarh Bengal
+270,KATWA,GEN,0,Katwa,KATWA,Purba Bardhaman,Rarh Bengal
+271,KETUGRAM,GEN,0,Ketugram,KETUGRAM,Purba Bardhaman,Rarh Bengal
+272,MANGALKOT,GEN,0,Mangalkot,MANGALKOT,Purba Bardhaman,Rarh Bengal
+273,AUSGRAM,SC,1,Ausgram,AUSGRAM (SC),Purba Bardhaman,Rarh Bengal
+274,GALSI,SC,1,Galsi,GALSI (SC),Purba Bardhaman,Rarh Bengal
+275,PANDABESWAR,GEN,0,Pandabeswar,PANDABESWAR,Paschim Bardhaman,Rarh Bengal
+276,DURGAPUR PURBA,GEN,0,Durgapur Purba,DURGAPUR PURBA,Paschim Bardhaman,Rarh Bengal
+277,DURGAPUR PASCHIM,GEN,0,Durgapur Paschim,DURGAPUR PASCHIM,Paschim Bardhaman,Rarh Bengal
+278,RANIGANJ,GEN,0,Raniganj,RANIGANJ,Paschim Bardhaman,Rarh Bengal
+279,JAMURIA,GEN,0,Jamuria,JAMURIA,Paschim Bardhaman,Rarh Bengal
+280,ASANSOL DAKSHIN,GEN,0,Asansol Dakshin,ASANSOL DAKSHIN,Paschim Bardhaman,Rarh Bengal
+281,ASANSOL UTTAR,GEN,0,Asansol Uttar,ASANSOL UTTAR,Paschim Bardhaman,Rarh Bengal
+282,KULTI,GEN,0,Kulti,KULTI,Paschim Bardhaman,Rarh Bengal
+283,BARABANI,GEN,0,Barabani,BARABANI,Paschim Bardhaman,Rarh Bengal
+284,DUBRAJPUR,SC,1,Dubrajpur,DUBRAJPUR (SC),Birbhum,Rarh Bengal
+285,SURI,GEN,0,Suri,SURI,Birbhum,Rarh Bengal
+286,BOLPUR,GEN,0,Bolpur,BOLPUR,Birbhum,Rarh Bengal
+287,NANOOR,SC,1,Nanoor,NANOOR (SC),Birbhum,Rarh Bengal
+288,LABPUR,GEN,0,Labpur,LABPUR,Birbhum,Rarh Bengal
+289,SAINTHIA,SC,1,Sainthia,SAINTHIA (SC),Birbhum,Rarh Bengal
+290,MAYURESWAR,GEN,0,Mayureswar,MAYURESWAR,Birbhum,Rarh Bengal
+291,RAMPURHAT,GEN,0,Rampurhat,RAMPURHAT,Birbhum,Rarh Bengal
+292,HANSAN,GEN,0,Hansan,HANSAN,Birbhum,Rarh Bengal
+293,NALHATI,GEN,0,Nalhati,NALHATI,Birbhum,Rarh Bengal
+294,MURARAI,GEN,0,Murarai,MURARAI,Birbhum,Rarh Bengal
