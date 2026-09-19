@@ -1,161 +1,132 @@
-# Data quality
+# Data quality notes
 
-Every defect below was found by profiling the raw ECI workbooks and the
-intermediate CSVs, and every one is corrected in `src/clean.py`. The two marked
-**critical** produce wrong answers rather than errors, which is what makes them
-dangerous.
+Source: ECI statistical reports, West Bengal Legislative Assembly 2021 and 2026,
+downloaded 7 May 2026.
 
-Source: Election Commission of India statistical reports, downloaded 2026-05-07.
-West Bengal Legislative Assembly, 2021 and 2026.
+Everything below was found by profiling the raw workbooks. All of it is handled
+in `src/clean.py`. The first two are the ones that matter — they produce wrong
+answers rather than errors.
 
----
+## Two labels for one party
 
-## Critical
+2021 has both `CPI(M)` (139 rows) and `CPIM` (3 rows). Same party. Any
+`GROUP BY party` splits it in two and understates CPI(M), and nothing warns you.
 
-### 1. Two labels for one party
+Fixed with `data/lookups/party_canonical.csv`, which also maps the ECI's `AITC`
+code to `TMC`.
 
-In 2021 the party column carries both `CPI(M)` (139 rows) and `CPIM` (3 rows).
-These are the same party. Left uncorrected, any `GROUP BY party` splits CPI(M)
-into two buckets and understates it — silently, with no error raised.
+Not resolved: `AJSUP`/`AJUP`, `AIMF`/`AISF` and `UTSAP`/`SAP` look like they
+might be the same parties under different labels. `RSSCMJP` polled 1.36% in 2021
+then disappears; `AISF` polled 1.54% in 2026 having not existed before. These
+could be renames. I haven't checked them against report 3 (List of Political
+Parties Participated), so don't claim a party emerged or vanished on this data.
 
-Corrected by `data/lookups/party_canonical.csv`. The same lookup maps the ECI's
-`AITC` code to `TMC`.
+## Turnout is implausible and the roll shrank
 
-**Still unverified:** `AJSUP`/`AJUP`, `AIMF`/`AISF` and `UTSAP`/`SAP` are
-fuzzy-similar label pairs across the two years. `RSSCMJP` polled 1.36% in 2021
-and disappears; `AISF` polled 1.54% in 2026 and appears from nowhere. These may
-be renames or may be different parties. Verify against report 3 (*List of
-Political Parties Participated*) before claiming a party emerged or vanished.
+93.6% in 2026 against 82.2% in 2021, with the electorate down from roughly 73.2M
+to 68.1M. Rolls don't shrink 6% in five years on their own.
 
-### 2. Turnout is anomalously high and the electorate shrank
+This isn't a bug in the pipeline — the ECI's own Highlight report states 93.71%.
+The roll contraction tracks the turnout rise closely by region, which points to a
+revision of the electoral register rather than a surge in participation.
 
-Turnout in 2026 is 93.6% against 82.2% in 2021, while the electorate fell from
-roughly 73.2M to 68.1M — about 6%. Electorates do not shrink naturally over five
-years.
+I haven't confirmed what drove the revision. Treat the turnout figure as
+explained-in-part, not settled.
 
-This is **not** a pipeline artefact: the ECI's own Highlight report states a
-state polling percentage of 93.71%. A smaller denominator raises the percentage
-without a single extra vote being cast, so a roll revision is the obvious
-candidate explanation.
+## Constituency names don't join across years
 
-**Status: unresolved.** Do not publish a turnout chart without establishing
-whether a Special Intensive Revision of electoral rolls preceded the poll.
+2021 is mixed case (`Mekliganj`), 2026 is upper case with a reservation tag
+(`MEKLIGANJ (SC)`). Exact match rate across years: 0 of 294.
 
----
+The tag is parsed into `reservation` / `is_reserved`, the name normalised, and
+`ac_no` used as the only join key.
 
-## Moderate
+## Names aren't unique within a year either
 
-### 3. Constituency names do not join across years
+`Bishnupur` is two constituencies — `ac_no` 146 in South 24 Parganas and 255 in
+Bankura. So `ac_name` isn't a key even within one election.
 
-2021 names are mixed case (`Mekliganj`); 2026 names are upper case and carry a
-reservation tag (`MEKLIGANJ (SC)`). Exact match rate across the two years:
-**0 of 294**.
+## A candidate name isn't a person
 
-Corrected by parsing the tag into `reservation` / `is_reserved`, normalising the
-name, and using `ac_no` as the only join key.
-
-### 4. Constituency name is not unique even within one year
-
-`Bishnupur` is two different constituencies — `ac_no` 146 (South 24 Parganas)
-and 255 (Bankura). `ac_name` is not a key. Join on `ac_no`.
-
-### 5. Candidate name is not a person
-
-| Year | Name | Ages | Verdict |
+| Year | Name | Ages | |
 |---|---|---|---|
-| 2021 | HUMAYUN KABIR | 61, 59 | two different people |
-| 2026 | Arup Kumar Das | 52, 68 | two different people |
+| 2021 | HUMAYUN KABIR | 61, 59 | two people |
+| 2026 | Arup Kumar Das | 52, 68 | two people |
 | 2026 | Adhikari Suvendu | 57, 57 | one person, two seats |
 | 2026 | Humayun Kabir | 63, 63 | one person, two seats |
 
-Winning two seats is legal in India; the winner vacates one within 14 days. So
-293 seats in 2026 have only **290 distinct winners**. Seat counts and people
-counts are different numbers.
+Winning two seats is legal — the winner vacates one within 14 days. So 293 seats
+in 2026 have 290 distinct winners. Seat counts and people counts are different
+numbers.
 
-Recorded in `data/clean/name_flags.csv`. Cross-year candidate tracking is *not*
-attempted: even after normalising case and token order, only about 543 of 2,079
-names match between the two years, which is too unreliable to build an
-incumbency figure on.
+All eight rows are in `data/clean/name_flags.csv`.
 
-### 6. One constituency held no poll
+I didn't attempt cross-year candidate tracking. Even after normalising case and
+word order only about 543 of 2,079 names match, and matching on name alone
+fans out — joining 2026 winners to 2021 candidates by name returns 300 rows for
+293 seats.
 
-Falta (`ac_no` 144) has no 2026 result — only a zero-vote NOTA row. The ECI
-Highlight report independently counts 293 constituencies, confirming this is a
-genuine countermanded poll rather than a scrape failure.
+## One seat held no poll
 
-Recorded in `data/clean/seat_status.csv` as `result_status = 'no_poll'` so it is
-excluded deliberately rather than vanishing from aggregates unnoticed.
+Falta (`ac_no` 144) has no 2026 result, just a zero-vote NOTA row. The ECI
+Highlight report independently counts 293 constituencies, so this is a genuine
+countermanded poll.
 
-### 7. Margin percentage was defined against the wrong denominator
+Recorded in `seat_status.csv` as `no_poll`. Worth excluding deliberately — left
+in, it reads as a seat where turnout fell 87 points, which drags any average.
 
-The original pipeline computed `win_margin_pct` as a share of *registered
-electors*. Published psephology expresses margin as a share of *votes polled*,
-which is a materially larger number.
+## Margin was measured against the wrong denominator
 
-Both are now carried and named explicitly: `margin_pct_polled` (use this) and
-`margin_pct_electors`.
+The earlier version of this pipeline expressed `win_margin_pct` as a share of
+registered electors. Published figures use share of votes polled, which is a
+larger number and the comparable one.
 
----
+Both are kept now, named `margin_pct_polled` and `margin_pct_electors`.
 
-## Minor
+## Serial prefixes and one awkward comma
 
-### 8. Embedded commas and serial prefixes in candidate names
+Candidate names come through as `1 Dadhiram Ray` — a ballot serial that needs
+stripping. And one 2021 name contains a comma: `Arup Roy, S/o Late Prabhat Roy`.
 
-Candidate names arrive as `1 Dadhiram Ray` — a ballot serial prefix. One 2021
-name contains a comma: `Arup Roy, S/o Late Prabhat Roy`.
+That comma matters. Split naively, it shifts every column after it one to the
+right, which moved his party into the category field and made TMC's 2021 seat
+count read 214 instead of 215.
 
-That comma matters. Under naive CSV splitting it shifts every subsequent column
-right, which moved his party from `TMC` into the category column — and made TMC's
-2021 seat count read as **214 instead of the correct 215**. A single
-unescaped character changed a headline number.
+## NOTA was sitting in the candidate table
 
-### 9. NOTA sat inside the candidate table
+294 NOTA rows per year with null gender, age and category — which was the whole
+of the dataset's apparent missing data. Now in `nota.csv`.
 
-294 NOTA rows per year carried null gender, age and category — the entirety of
-the dataset's apparent "missing data". Moved to `data/clean/nota.csv`.
+## Reconciling with the published totals
 
----
+Both of these turned up when the assertions first ran, and both are properties of
+the source rather than mistakes.
 
-## Two reconciliation notes
+The ECI's elector total of 68,125,496 covers only the 293 seats that polled.
+All 294 comes to 68,362,033 — the difference is exactly Falta's 236,537.
 
-Both surfaced when the pipeline's assertions were first run against the ECI
-Highlight report, and both are properties of the source, not bugs.
+The ECI reports 63,842,843 votes polled; the Detailed Results workbook contains
+63,753,070. The 89,773 gap is rejected votes, which that workbook doesn't
+itemise. Valid votes (63,258,138) and NOTA (494,932) both match exactly.
 
-**Electors.** The ECI's published total of 68,125,496 covers only the 293
-constituencies that polled. Summing all 294 gives 68,362,033 — the difference is
-exactly Falta's 236,537 electors.
-
-**Votes polled.** The ECI reports 63,842,843 votes polled, but the Detailed
-Results workbook contains 63,753,070. The gap of 89,773 is *rejected* votes,
-which that workbook does not itemise. Valid votes (63,258,138) and NOTA
-(494,932) each match the published figure exactly.
-
-Consequently `turnout_pct` in this dataset runs about 0.13 points below the
-ECI's published poll percentage. It is computed as
-`(valid + NOTA) / electors`.
-
----
+So `turnout_pct` here runs about 0.13 points below the ECI's published poll
+percentage. It's `(valid + NOTA) / electors`.
 
 ## Vote share convention
 
-Party vote share is expressed as a percentage of **valid votes**, excluding
-NOTA. NOTA is reported separately as a share of votes polled. The ECI's own
-`% VOTES POLLED` column uses valid votes + NOTA as its denominator, so figures
-here run marginally above it. State which convention you are using whenever you
-quote a number.
+Party vote share here is a percentage of valid votes, excluding NOTA. NOTA is
+reported separately as a share of votes polled. The ECI's own `% VOTES POLLED`
+column uses valid + NOTA as its denominator, so these figures sit marginally
+above it. Worth stating whenever you quote a number.
 
----
+## About the district mapping
 
-## Provenance warning: the district mapping
+`data/lookups/constituencies.csv` maps all 294 seats to 23 districts and 8
+regions. No ECI workbook in this repo carries district — West Bengal numbers its
+constituencies contiguously by district, so the mapping is derived from that and
+checked against the constituency names.
 
-`data/lookups/constituencies.csv` maps all 294 constituencies to 23 districts
-and 8 regions. **No ECI workbook in this repository contains district
-information** — the mapping is derived from the fact that West Bengal numbers
-its constituencies contiguously by district, and was checked against
-constituency names.
-
-It reconciles correctly: 23 districts totalling 294 seats, matching West
-Bengal's actual district count. But it has not been verified row by row against
-an official source. Spot-check it against the ECI constituency list before
-publishing any district-level claim. Region-level findings are robust to a
-one-seat boundary error; district-level findings are not.
+It reconciles: 23 districts, 294 seats, matching the state's actual district
+count. But it isn't verified row by row against an official list. Regional
+findings survive a one-seat boundary error. District-level claims should be
+checked first.

@@ -1,34 +1,27 @@
 # West Bengal Assembly Elections: 2021 vs 2026
 
-A comparative analysis of two West Bengal state elections, built from the
-Election Commission of India's published statistical reports.
+Comparing two West Bengal state elections using the Election Commission's
+published statistical reports. 294 constituencies, 5,052 candidates.
 
-**Scope:** 294 constituencies, 5,052 candidates, two elections.
-**Stack:** Python (pandas) · SQLite · Power BI
+Python (pandas) · SQLite · Power BI
 
----
+## What I found
 
-## Findings
+**A 15-point vote swing produced a 135-seat reversal.** TMC's vote share went
+from 48.6% to 41.1%, BJP's from 38.4% to 46.2%. Seats went from TMC 215 / BJP 77
+to BJP 207 / TMC 80. Under first-past-the-post a swing concentrated near the
+margin flips a lot of seats at once — BJP took 46% of the vote and 71% of
+the seats.
 
-> Analysis in progress. Replace this section with your own conclusions —
-> written as sentences with numbers in them, before any chart appears.
+**Not one seat flipped against the tide.** 129 seats went TMC to BJP. Zero went
+BJP to TMC.
 
-The dataset's central puzzle, and the thing worth leading with once resolved:
-
-**A 15-point vote swing produced a 135-seat reversal.** TMC's vote share fell
-from 48.6% to 41.1% and BJP's rose from 38.4% to 46.2% — a swing of roughly 15
-points between them. Seats moved from TMC 215 / BJP 77 to BJP 207 / TMC 80.
-Under first-past-the-post, seats are won one at a time on a plurality, so a
-swing concentrated near the margin flips a disproportionate number of them at
-once.
-
-**Turnout rose to 93.6% from 82.2%, while the electorate shrank about 6%**
-(73.2M to 68.1M). A smaller denominator raises the percentage without a single
-extra vote being cast. Whether a roll revision explains this is unresolved and
-must be settled before any turnout figure is published. See
-[`docs/data_quality.md`](docs/data_quality.md).
-
-### Seats and vote share
+**Most of the turnout "rise" is arithmetic.** Turnout reads 93.6% against 82.2%
+in 2021, but the electoral roll shrank about 6% — 241 of 293 seats lost voters
+from the register. The regions where the roll shrank most are the regions where
+turnout rose most: Kolkata & Howrah lost 16.7% of its electorate and gained 19.5
+points of turnout, while Jangalmahal lost 0.7% and gained 7.6. A smaller
+denominator raises the percentage without anyone extra voting.
 
 | Party | 2021 vote | 2026 vote | 2021 seats | 2026 seats |
 |---|---|---|---|---|
@@ -38,106 +31,84 @@ must be settled before any turnout figure is published. See
 | INC | 3.06% | 2.99% | 0 | 2 |
 | NOTA | 1.10% | 0.78% | — | — |
 
-Vote share is a percentage of valid votes, excluding NOTA.
-
----
+Vote share is a percentage of valid votes, NOTA excluded.
 
 ## Running it
 
 ```bash
 pip install -r requirements.txt
-python src/clean.py      # raw ECI workbooks -> data/clean/
-python src/load_db.py    # data/clean/ -> bengal_elections.db
+python src/clean.py     # raw workbooks -> data/clean/
+python src/load_db.py   # data/clean/  -> bengal_elections.db
 ```
 
-`src/clean.py` validates its own output against the totals the ECI publishes in
-its Highlight report and **exits non-zero if they drift**:
+`clean.py` checks its own output against the totals the ECI publishes and exits
+non-zero if they don't match:
 
 ```
-PASS  2026 electors (293 polled seats)   68,125,496
-PASS  2026 valid votes                   63,258,138
-PASS  2026 NOTA votes                       494,932
-PASS  2026 contestants                        2,920
+ok   electors, 293 polled seats           68,125,496
+ok   valid votes                          63,258,138
+ok   NOTA votes                              494,932
+ok   contestants                               2,920
 ```
-
----
 
 ## Layout
 
 ```
-data/raw/          15 ECI workbooks, as downloaded
-data/clean/        analysis-ready tables (generated)
-data/lookups/      party canonicalisation, constituency -> district -> region
-data/reference/    the earlier pipeline and its output, kept for comparison
-src/clean.py       raw -> clean, with assertions
-src/load_db.py     clean -> SQLite
-sql/schema.sql     schema, indexes and two convenience views
-docs/              data quality report
+data/raw/        the 15 ECI workbooks as downloaded
+data/clean/      generated tables
+data/lookups/    party name mapping, constituency -> district -> region
+src/             clean.py, load_db.py
+sql/             schema plus the six analysis queries
+docs/            data quality notes
 ```
 
-### Tables
+Tables: `constituencies` (294), `results` (5,052 candidates, NOTA excluded),
+`winners` (587, runner-up alongside), `nota`, `electorate`, `seat_status`,
+`name_flags`. The views `v_results` and `v_winners` have district and region
+joined in already.
 
-| Table | Grain | Rows |
-|---|---|---|
-| `constituencies` | one per seat | 294 |
-| `results` | one per candidate per election, NOTA excluded | 5,052 |
-| `winners` | one per seat per election, runner-up alongside | 587 |
-| `nota` | one per seat per election | 588 |
-| `electorate` | one per seat per election | 588 |
-| `seat_status` | marks Falta 2026 as `no_poll` | 588 |
-| `name_flags` | winners sharing a name | 8 |
+## Before you query
 
-Views `v_results` and `v_winners` join geography in for you.
+Join on `ac_no`, never on name — constituency names match 0 of 294 across the
+two years, and Bishnupur is two different seats.
 
----
+Filter `seat_status`. Falta held no poll in 2026, so it's 293 seats that year,
+not 294.
 
-## Three things to know before querying
-
-**Join on `ac_no`, never on name.** Constituency names match 0 of 294 across the
-two years, and `Bishnupur` is two different seats.
-
-**Filter `seat_status`.** Falta held no poll in 2026. Excluding it deliberately
-is correct; letting it disappear silently is not.
-
-**Use `margin_pct_polled`, not `margin_pct_electors`.** Both are present. The
+Use `margin_pct_polled` rather than `margin_pct_electors`. Both are there; the
 first is the convention published figures use.
-
----
 
 ## Data quality
 
-Nine defects were found and corrected; two are documented as unresolved. Full
-report: [`docs/data_quality.md`](docs/data_quality.md).
+Nine problems in the source data, all corrected in `clean.py` and written up in
+[docs/data_quality.md](docs/data_quality.md). Two worth knowing about here:
 
-The one worth knowing about here: in 2021 the party column carried both
-`CPI(M)` (139 rows) and `CPIM` (3 rows). It raises no error — it just quietly
-splits the party in any aggregation. Separately, a single unescaped comma in the
-candidate name `Arup Roy, S/o Late Prabhat Roy` shifted his row's columns under
-naive parsing and made TMC's 2021 seat count read as 214 rather than the
-correct 215.
+The 2021 party column contains both `CPI(M)` (139 rows) and `CPIM` (3 rows).
+Nothing errors — it just splits the party in two in any aggregation.
 
----
+One candidate is named `Arup Roy, S/o Late Prabhat Roy`. That comma shifted his
+row's columns under naive parsing, which put his party in the wrong field and
+made TMC's 2021 seat count read 214 instead of 215.
 
 ## Limitations
 
-- **Cross-year candidate tracking is not attempted.** Only about 543 of 2,079
-  names match between the two years even after normalising case and token order,
-  so any incumbency rate would be unreliable enough to mislead.
-- **The district mapping is derived, not sourced.** No ECI workbook here carries
-  district. See the provenance warning in the data quality report; region-level
-  findings are robust to a boundary error, district-level ones are not.
-- **No booth-level analysis.** The data does not exist at that grain in these
-  reports.
-- **No predictive model.** 294 rows per election. A model here would invite
-  questions about sample size that add nothing the descriptive analysis has not
-  already shown.
-- **Turnout runs ~0.13pp below the ECI's published poll percentage**, because
-  the Detailed Results workbook does not itemise rejected votes.
+**No cross-year candidate tracking.** Only about 543 of 2,079 names match
+between the two years even after normalising case and word order, so an
+incumbency rate built on that would mislead.
 
----
+**The district mapping is derived, not sourced.** No workbook here carries
+district, so it's inferred from the ECI's contiguous numbering and checked
+against constituency names. It reconciles to 23 districts and 294 seats but
+hasn't been verified row by row. Regional findings survive a boundary error;
+district-level ones might not.
+
+**Turnout runs about 0.13 points below the ECI's published poll percentage**,
+because the Detailed Results workbook doesn't itemise rejected votes.
+
+**Nothing here is causal.** It shows what happened, not why.
 
 ## Source
 
-Election Commission of India statistical reports for the West Bengal
-Legislative Assembly elections, 2021 and 2026. Raw workbooks are committed
-under `data/raw/` as the provenance for every figure quoted above.
+ECI statistical reports for the West Bengal Legislative Assembly, 2021 and 2026.
+The raw workbooks are committed under `data/raw/` so every figure above can be
+traced back.
