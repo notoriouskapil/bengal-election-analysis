@@ -1,27 +1,51 @@
 # West Bengal Assembly Elections: 2021 vs 2026
 
-Comparing two West Bengal state elections using the Election Commission's
-published statistical reports. 294 constituencies, 5,052 candidates.
+I pulled the Election Commission's statistical reports for both elections and
+built a pipeline that goes from the raw workbooks to a queryable database, then
+looked at what changed. 294 constituencies, 5,052 candidates, two elections.
 
-Python (pandas) · SQLite · Power BI
+Python and pandas for the cleaning, SQLite for the analysis.
+
+![Seat reversal](figures/01_seat_reversal.png)
 
 ## What I found
 
-**A 15-point vote swing produced a 135-seat reversal.** TMC's vote share went
-from 48.6% to 41.1%, BJP's from 38.4% to 46.2%. Seats went from TMC 215 / BJP 77
-to BJP 207 / TMC 80. Under first-past-the-post a swing concentrated near the
-margin flips a lot of seats at once. BJP took 46% of the vote and 71% of
-the seats.
+TMC went from 215 seats to 80. BJP went from 77 to 207.
 
-**Not one seat flipped against the tide.** 129 seats went TMC to BJP. Zero went
-BJP to TMC.
+The vote didn't move nearly as far as the seats did. TMC's share fell 7.4 points
+and BJP's rose 7.8, so about 15 points changed hands between them — and that
+produced a 135-seat swing. BJP ended up with 46% of the vote and 71% of the
+seats. The reason is that 197 of the 294 seats in 2021 were held by margins
+under 15 points, and a 7.4-point swing moves a margin by roughly fifteen. Most
+of the state was already within reach before anyone voted.
 
-**Most of the turnout "rise" is arithmetic.** Turnout reads 93.6% against 82.2%
-in 2021, but the electoral roll shrank about 6%: 241 of 293 seats lost voters
-from the register. The regions where the roll shrank most are the regions where
-turnout rose most: Kolkata & Howrah lost 16.7% of its electorate and gained 19.5
-points of turnout, while Jangalmahal lost 0.7% and gained 7.6. A smaller
-denominator raises the percentage without anyone extra voting.
+Something I didn't expect: **not one seat moved against the tide.** 129 went
+from TMC to BJP and none came back. In a state with 293 results I assumed a
+handful would buck the trend. None did.
+
+![Vote share against seat share](figures/02_vote_vs_seat_share.png)
+
+### The turnout number is misleading
+
+This is the part I spent longest on.
+
+Reported turnout was 93.6%, against 82.2% in 2021. That looked wrong to me, so I
+checked the electorate, and it had *shrunk*, from about 73.2 million to 68.1
+million. Registers don't lose 7% of their names in five years on their own.
+
+Turnout is votes over registered voters, so a smaller register lifts the
+percentage whether or not anyone extra turns up. Applying 2026's votes to the
+2021 register gives 87.1% instead of 93.6%. Of the 11.4-point rise, 5.0 points
+is more people voting and 6.5 points is the denominator. **57% of it is
+arithmetic.**
+
+The per-seat correlation between roll change and turnout change is −0.84 across
+293 seats, and the register shrank in 241 of them.
+
+![Turnout against roll change](figures/06_turnout_vs_roll.png)
+
+What I can't tell you is *why* the register shrank. That needs a source I
+haven't found, so I've left it as an open question rather than guessing.
 
 | Party | 2021 vote | 2026 vote | 2021 seats | 2026 seats |
 |---|---|---|---|---|
@@ -31,7 +55,10 @@ denominator raises the percentage without anyone extra voting.
 | INC | 3.06% | 2.99% | 0 | 2 |
 | NOTA | 1.10% | 0.78% | — | — |
 
-Vote share is a percentage of valid votes, NOTA excluded.
+Vote share here is a percentage of valid votes, NOTA excluded.
+
+There's a slide deck in the repo (`Bengal_2021_vs_2026.pptx`) walking through the
+same argument.
 
 ## Running it
 
@@ -41,8 +68,8 @@ python src/clean.py     # raw workbooks -> data/clean/
 python src/load_db.py   # data/clean/  -> bengal_elections.db
 ```
 
-`clean.py` checks its own output against the totals the ECI publishes and exits
-non-zero if they don't match:
+`clean.py` asserts its own output against the totals the Commission publishes in
+its Highlight report, and exits non-zero if anything drifts:
 
 ```
 ok   electors, 293 polled seats           68,125,496
@@ -51,64 +78,61 @@ ok   NOTA votes                              494,932
 ok   contestants                               2,920
 ```
 
-## Layout
+I added that after realising I had no way of knowing whether my parsing was
+right. It caught two things on the first run, both of which turned out to be
+properties of the source rather than my bugs: the Commission's elector total
+excludes the one seat that didn't poll, and its "votes polled" figure includes
+89,773 rejected votes that the detailed results don't itemise.
 
-```
-data/raw/        the 15 ECI workbooks as downloaded
-data/clean/      generated tables
-data/lookups/    party name mapping, constituency -> district -> region
-src/             clean.py, load_db.py
-sql/             schema plus the six analysis queries
-docs/            data quality notes
-```
+## What went wrong in the data
 
-Tables: `constituencies` (294), `results` (5,052 candidates, NOTA excluded),
-`winners` (587, runner-up alongside), `nota`, `electorate`, `seat_status`,
-`name_flags`. The views `v_results` and `v_winners` have district and region
-joined in already.
+Nine problems, written up in [docs/data_quality.md](docs/data_quality.md). The
+two that would have quietly produced wrong answers:
+
+The 2021 party column contains `CPI(M)` on 139 rows and `CPIM` on 3. Same party.
+Nothing errors, it just splits CPI(M) in two in any aggregation.
+
+One candidate is named `Arup Roy, S/o Late Prabhat Roy`. The comma shifted his
+row's columns, which pushed his party into the category field and made TMC's
+2021 seat count read 214 instead of the correct 215. One character.
+
+I also had the subtraction backwards in the regional swing query for a while, so
+every region printed a TMC *gain* instead of a loss. Caught it before it went
+anywhere, but it's the kind of error that looks entirely plausible on a chart.
 
 ## Before you query
 
-Join on `ac_no`, never on name. Constituency names match 0 of 294 across the
-two years, and Bishnupur is two different seats.
+Join on `ac_no`, never on the constituency name. Names match 0 of 294 across the
+two years, because 2026 carries an `(SC)`/`(ST)` suffix and 2021 doesn't. Bishnupur is
+two different seats anyway.
 
-Filter `seat_status`. Falta held no poll in 2026, so it's 293 seats that year,
-not 294.
+Falta held no poll in 2026, so filter `seat_status` or you'll get 294 rows and
+one seat showing turnout collapsing by 87 points.
 
-Use `margin_pct_polled` rather than `margin_pct_electors`. Both are there; the
-first is the convention published figures use.
-
-## Data quality
-
-Nine problems in the source data, all corrected in `clean.py` and written up in
-[docs/data_quality.md](docs/data_quality.md). Two worth knowing about here:
-
-The 2021 party column contains both `CPI(M)` (139 rows) and `CPIM` (3 rows).
-Nothing errors; it just splits the party in two in any aggregation.
-
-One candidate is named `Arup Roy, S/o Late Prabhat Roy`. That comma shifted his
-row's columns under naive parsing, which put his party in the wrong field and
-made TMC's 2021 seat count read 214 instead of 215.
+Use `margin_pct_polled`, not `margin_pct_electors`. Both are there; the first is
+the convention published figures use.
 
 ## Limitations
 
-**No cross-year candidate tracking.** Only about 543 of 2,079 names match
-between the two years even after normalising case and word order, so an
-incumbency rate built on that would mislead.
+I didn't attempt cross-year candidate tracking. Only about 543 of 2,079 names
+match between the elections even after normalising case and word order, and
+matching on name alone fans out: joining 2026 winners to 2021 candidates
+returns 300 rows for 293 seats. Any incumbency figure off that would mislead.
 
-**The district mapping is derived, not sourced.** No workbook here carries
-district, so it's inferred from the ECI's contiguous numbering and checked
-against constituency names. It reconciles to 23 districts and 294 seats but
-hasn't been verified row by row. Regional findings survive a boundary error;
-district-level ones might not.
+The district mapping is derived rather than sourced. No workbook in here carries
+district, so I inferred it from the Commission's contiguous numbering and
+checked it against constituency names. It reconciles to 23 districts and 294
+seats, but I haven't verified it row by row against an official list, so I've
+kept the regional claims and been careful with the district-level ones.
 
-**Turnout runs about 0.13 points below the ECI's published poll percentage**,
-because the Detailed Results workbook doesn't itemise rejected votes.
+Turnout here runs about 0.13 points under the published figure, for the rejected
+votes reason above.
 
-**Nothing here is causal.** It shows what happened, not why.
+And it's descriptive. It shows what happened, not why people voted the way they
+did.
 
 ## Source
 
-ECI statistical reports for the West Bengal Legislative Assembly, 2021 and 2026.
-The raw workbooks are committed under `data/raw/` so every figure above can be
-traced back.
+Election Commission of India statistical reports, West Bengal Legislative
+Assembly, 2021 and 2026. The raw workbooks are committed under `data/raw/`, so
+every number above can be traced back to the file it came from.
