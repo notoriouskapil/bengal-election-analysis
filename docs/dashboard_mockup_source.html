@@ -1,0 +1,446 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#F4F2F8;font-family:Archivo,sans-serif;color:#191527}
+.page{width:1600px;height:1000px;position:relative;overflow:hidden;background:#F4F2F8}
+.nav{background:#17141F;height:52px;display:flex;align-items:center;padding:0 30px;gap:30px}
+.brand{font-size:14px;font-weight:700;color:#fff;font-variation-settings:"wdth" 112;letter-spacing:.01em}
+.brand span{color:#8B82A1;font-weight:400;margin-left:9px;font-size:12px}
+.tabs{display:flex;gap:4px;margin-left:16px}
+.tab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#8B82A1;padding:6px 13px;border-radius:5px}
+.tab.on{background:#EC7000;color:#fff}
+.src{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:#655C7D;letter-spacing:.07em}
+.hero{background:#1F1B29;padding:18px 30px 20px}
+.hrow{display:grid;grid-template-columns:118px 1fr;gap:20px;align-items:center;margin-bottom:11px}
+.yr{font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:600;color:#fff}
+.yr small{display:block;font-size:9.5px;color:#8B82A1;letter-spacing:.09em;margin-top:2px}
+.bar{display:flex;height:34px;border-radius:4px;overflow:hidden;position:relative}
+.bar div{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13.5px}
+.maj{position:absolute;top:-6px;bottom:-6px;width:2px;background:#fff;left:50.17%;z-index:3}
+.majl{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:#fff;letter-spacing:.1em;position:absolute;left:50.17%;transform:translateX(-50%);top:-15px}
+.wrap{padding:16px 30px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin-bottom:15px}
+.kpi{background:#fff;border:1px solid #E4E0EC;border-radius:8px;padding:13px 16px;box-shadow:0 1px 2px rgba(25,21,39,.04)}
+.kpi .l{font-size:10.5px;color:#5C5470;margin-bottom:5px;line-height:1.3;height:26px}
+.kpi .v{font-family:"IBM Plex Mono",monospace;font-size:28px;font-weight:600;line-height:1}
+.kpi .u{font-size:13px;color:#8B82A1;font-weight:400}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px}
+.tall .card{min-height:330px}
+.g2b{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+.card{background:#fff;border:1px solid #E4E0EC;border-radius:8px;padding:15px 18px;box-shadow:0 1px 2px rgba(25,21,39,.04)}
+.ct{font-size:14px;font-weight:700;font-variation-settings:"wdth" 108;line-height:1.2}
+.cs{font-size:10.5px;color:#5C5470;margin:3px 0 12px}
+.row{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.lab{font-size:11px;color:#191527;font-weight:600}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#5C5470}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+th{background:#F4F2F8;padding:6px 8px;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#5C5470;font-weight:500;text-align:left}
+td{padding:6px 8px;border-bottom:1px solid #F0EEF4}
+#reserved td{padding:13px 8px}
+td.n{font-family:"IBM Plex Mono",monospace;text-align:right}
+.chip{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:9px;padding:2px 6px;border-radius:3px;letter-spacing:.05em}
+.flip{background:#FDEEE3;color:#B85200}
+.held{background:#F0EEF4;color:#5C5470}
+.slic{display:flex;gap:8px;margin-top:14px}
+.sl{background:#fff;border:1px solid #E4E0EC;border-radius:6px;padding:5px 12px;font-size:11px;color:#5C5470}
+.sl b{color:#191527}
+.note{font-size:10.5px;color:#5C5470;margin-top:9px;line-height:1.45}
+</style></head><body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page" id="p1">
+  <div class="nav"><div class="brand">WEST BENGAL ASSEMBLY<span>2021 vs 2026</span></div>
+    <div class="tabs"><div class="tab on">Result</div><div class="tab">Swing &amp; Geography</div><div class="tab">Turnout</div><div class="tab">The Contest</div><div class="tab">Representation</div><div class="tab">Explorer</div></div>
+    <div class="src">SOURCE: ELECTION COMMISSION OF INDIA</div></div>
+
+  <div class="hero">
+    <div class="hrow"><div class="yr">2021<small>294 SEATS</small></div>
+      <div style="position:relative"><div class="majl">MAJORITY 147</div><div class="maj"></div><div class="bar">
+        <div style="width:26.2%;background:#EC7000">BJP 77</div><div style="width:73.1%;background:#1E7A4F">TMC 215</div><div style="width:0.7%;background:#9E9E9E"></div></div></div></div>
+    <div class="hrow"><div class="yr">2026<small>293 SEATS</small></div>
+      <div style="position:relative"><div class="maj"></div><div class="bar">
+        <div style="width:70.6%;background:#EC7000">BJP 207</div><div style="width:27.3%;background:#1E7A4F">TMC 80</div><div style="width:2.1%;background:#9E9E9E">6</div></div></div></div>
+  </div>
+
+  <div class="wrap">
+    <div class="kpis">
+      <div class="kpi"><div class="l">Seats that changed hands</div><div class="v">136</div></div>
+      <div class="kpi"><div class="l">Seats that flipped against the tide</div><div class="v" style="color:#C62828">0</div></div>
+      <div class="kpi"><div class="l">TMC vote share swing</div><div class="v">&minus;7.4<span class="u"> pts</span></div></div>
+      <div class="kpi"><div class="l">Average change in electoral roll</div><div class="v" style="color:#EC7000">&minus;7.1<span class="u"> %</span></div></div>
+      <div class="kpi"><div class="l">Average change in turnout</div><div class="v" style="color:#EC7000">+11.5<span class="u"> pts</span></div></div>
+    </div>
+
+    <div class="g3">
+      <div class="card"><div class="ct">Vote share barely halved &mdash; seat share collapsed</div>
+        <div class="cs">Each party, 2021 against 2026</div><div id="vcmp"></div></div>
+      <div class="card"><div class="ct">Seats won</div><div class="cs">2021 against 2026</div><div id="scmp"></div></div>
+      <div class="card"><div class="ct">Not one seat flipped against the tide</div>
+        <div class="cs">2021 winner &times; 2026 winner</div>
+        <table><tr><th>2021</th><th>2026</th><th style="text-align:right">Seats</th></tr>
+        <tr><td><span class="chip" style="background:#1E7A4F"></span>TMC</td><td><span class="chip" style="background:#EC7000"></span>BJP</td><td class="n" style="font-weight:700">129</td></tr>
+        <tr><td><span class="chip" style="background:#1E7A4F"></span>TMC</td><td><span class="chip" style="background:#1E7A4F"></span>TMC</td><td class="n" style="font-weight:700">80</td></tr>
+        <tr><td><span class="chip" style="background:#EC7000"></span>BJP</td><td><span class="chip" style="background:#EC7000"></span>BJP</td><td class="n" style="font-weight:700">77</td></tr>
+        <tr><td><span class="chip" style="background:#EC7000"></span>BJP</td><td><span class="chip" style="background:#1E7A4F"></span>TMC</td><td class="n" style="font-weight:700;color:#C62828">0</td></tr>
+        <tr><td colspan="2" style="color:#5C5470">TMC &rarr; others</td><td class="n">5</td></tr>
+        <tr><td colspan="2" style="color:#5C5470">Other combinations</td><td class="n">2</td></tr></table>
+        <div class="note"><b>A wave, not a swing.</b> In a 293-seat state not a single seat moved the other way.</div></div>
+    </div>
+
+    <div class="g2b" style="margin-top:14px">
+      <div class="card"><div class="ct">Two-thirds of 2021 seats sat inside the swing that followed</div>
+        <div class="cs">Distribution of winning margins, both years</div>
+        <svg id="hist" width="100%" height="176" viewBox="0 0 760 176"></svg></div>
+      <div class="card"><div class="ct">Closest seats, 2026</div><div class="cs">Narrowest margins as a share of votes polled</div>
+        <table id="closest"></table></div>
+    </div>
+
+    <div class="slic"><div class="sl">Region: <b>All</b> &#9662;</div><div class="sl">Outcome: <b>All</b> &#9662;</div><div class="sl">Reservation: <b>All</b> &#9662;</div></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page" id="p2">
+  <div class="nav"><div class="brand">WEST BENGAL ASSEMBLY<span>2021 vs 2026</span></div>
+    <div class="tabs"><div class="tab">Result</div><div class="tab on">Swing &amp; Geography</div><div class="tab">Turnout</div><div class="tab">The Contest</div><div class="tab">Representation</div><div class="tab">Explorer</div></div>
+    <div class="src">SOURCE: ELECTION COMMISSION OF INDIA</div></div>
+  <div class="wrap" style="padding-top:18px">
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="l">Districts that changed hands</div><div class="v">11<span class="u"> of 23</span></div></div>
+      <div class="kpi"><div class="l">Districts TMC held</div><div class="v" style="color:#1E7A4F">4</div></div>
+      <div class="kpi"><div class="l">Deepest regional swing</div><div class="v">&minus;14.3<span class="u"> Murshidabad</span></div></div>
+      <div class="kpi"><div class="l">Shallowest regional swing</div><div class="v">&minus;4.1<span class="u"> S. 24 Pgs</span></div></div>
+    </div>
+    <div class="g2">
+      <div class="card"><div class="ct">TMC fell in every region, but not evenly</div>
+        <div class="cs">Change in vote share, percentage points &middot; TMC and BJP</div><div id="swing"></div></div>
+      <div class="card"><div class="ct">Seats by region, 2021 against 2026</div>
+        <div class="cs">BJP and TMC seat counts</div><div id="regseats"></div></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="ct">District detail</div>
+      <div class="cs">Winning party by district, both years &middot; sorted by change in electoral roll</div>
+      <table id="dist"></table></div>
+    <div class="slic"><div class="sl">Region: <b>All</b> &#9662;</div><div class="sl">Outcome: <b>All</b> &#9662;</div></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="page" id="p3">
+  <div class="nav"><div class="brand">WEST BENGAL ASSEMBLY<span>2021 vs 2026</span></div>
+    <div class="tabs"><div class="tab">Result</div><div class="tab">Swing &amp; Geography</div><div class="tab on">Turnout</div><div class="tab">The Contest</div><div class="tab">Representation</div><div class="tab">Explorer</div></div>
+    <div class="src">SOURCE: ELECTION COMMISSION OF INDIA</div></div>
+  <div class="wrap" style="padding-top:16px">
+    <div class="kpis" style="grid-template-columns:repeat(5,1fr)">
+      <div class="kpi"><div class="l">Turnout 2021</div><div class="v">82.1<span class="u"> %</span></div></div>
+      <div class="kpi"><div class="l">Turnout 2026, as reported</div><div class="v">93.6<span class="u"> %</span></div></div>
+      <div class="kpi"><div class="l">Of the 11.4pt rise, the part from the roll shrinking</div><div class="v" style="color:#EC7000">6.5<span class="u"> pts &middot; 57%</span></div></div>
+      <div class="kpi"><div class="l">Seats where the roll shrank</div><div class="v">241<span class="u"> of 293</span></div></div>
+      <div class="kpi"><div class="l">Correlation, roll vs turnout change</div><div class="v" style="color:#EC7000">&minus;0.84</div></div>
+    </div>
+
+    <div class="g2b">
+      <div class="card"><div class="ct">Where the electoral roll shrank, turnout &lsquo;rose&rsquo;</div>
+        <div class="cs">One dot per seat &middot; 293 seats &middot; r = &minus;0.84</div>
+        <svg id="sc" width="100%" height="268" viewBox="0 0 860 268"></svg></div>
+      <div class="card"><div class="ct">Decomposing the rise</div>
+        <div class="cs">Same votes, different denominators</div>
+        <div id="decomp"></div></div>
+    </div>
+
+    <div class="g2" style="margin-top:14px">
+      <div class="card"><div class="ct">Turnout by region, 2021 against 2026</div>
+        <div class="cs">Grey is 2021; orange is the increase. The roll figure is how far the register fell</div>
+        <div id="turn"></div></div>
+      <div class="card"><div class="ct">The register shrank almost everywhere</div>
+        <div class="cs">Distribution of the change in electoral roll, 293 seats</div>
+        <svg id="rh" width="100%" height="150" viewBox="0 0 700 150"></svg>
+        <div class="note"><b>241 of 293 seats lost voters from the register.</b> A revision on this scale lifts every turnout percentage in the state without a single extra ballot.</div></div>
+    </div>
+
+    <div class="slic"><div class="sl">Region: <b>All</b> &#9662;</div>
+      <div style="margin-left:auto" class="mono">UNRESOLVED: THE CAUSE OF THE ROLL REVISION IS NOT ESTABLISHED IN THIS DATA</div></div>
+  </div>
+</div>
+
+
+<!-- ============ PAGE 4 ============ -->
+<div class="page" id="p4">
+  <div class="nav"><div class="brand">WEST BENGAL ASSEMBLY<span>2021 vs 2026</span></div>
+    <div class="tabs"><div class="tab">Result</div><div class="tab">Swing &amp; Geography</div><div class="tab">Turnout</div><div class="tab on">The Contest</div><div class="tab">Representation</div><div class="tab">Explorer</div></div>
+    <div class="src">SOURCE: ELECTION COMMISSION OF INDIA</div></div>
+  <div class="wrap" style="padding-top:16px">
+    <div class="kpis" style="grid-template-columns:repeat(5,1fr)">
+      <div class="kpi"><div class="l">Candidates per seat</div><div class="v">7.3<span class="u"> &rarr; </span>10.0</div></div>
+      <div class="kpi"><div class="l">Parties contesting</div><div class="v">58<span class="u"> &rarr; </span>62</div></div>
+      <div class="kpi"><div class="l">Candidates who lost their deposit</div><div class="v" style="color:#EC7000">78.7<span class="u"> %</span></div></div>
+      <div class="kpi"><div class="l">2021 seats where a vote split could have decided it</div><div class="v">132<span class="u"> of 294</span></div></div>
+      <div class="kpi"><div class="l">Seats where NOTA exceeded the margin, 2021</div><div class="v">14</div></div>
+    </div>
+    <div class="g3 tall">
+      <div class="card"><div class="ct">Nearly half of 2021 seats could have turned on a vote split</div>
+        <div class="cs">Seats where 3rd + 4th place votes exceeded the winning margin</div><div id="splits"></div>
+        <div class="note">Consolidation in 2026: fewer seats were close enough for a split to matter, even with three more candidates per seat.</div></div>
+      <div class="card"><div class="ct">A more crowded ballot, a less relevant one</div>
+        <div class="cs">Candidates per seat, and the share losing their deposit</div><div id="contest"></div></div>
+      <div class="card"><div class="ct">NOTA fell as the contest sharpened</div>
+        <div class="cs">Share of votes polled, and seats where it exceeded the margin</div><div id="notap"></div>
+        <table id="notat" style="margin-top:10px"></table></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="ct">Winning margins widened across the board</div>
+      <div class="cs">Distribution of margins as a share of votes polled &middot; 2021 against 2026</div>
+      <svg id="hist2" width="100%" height="330" viewBox="0 0 1500 330"></svg></div>
+    <div class="slic"><div class="sl">Region: <b>All</b> &#9662;</div><div class="sl">Reservation: <b>All</b> &#9662;</div></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 ============ -->
+<div class="page" id="p5">
+  <div class="nav"><div class="brand">WEST BENGAL ASSEMBLY<span>2021 vs 2026</span></div>
+    <div class="tabs"><div class="tab">Result</div><div class="tab">Swing &amp; Geography</div><div class="tab">Turnout</div><div class="tab">The Contest</div><div class="tab on">Representation</div><div class="tab">Explorer</div></div>
+    <div class="src">SOURCE: ELECTION COMMISSION OF INDIA</div></div>
+  <div class="wrap" style="padding-top:16px">
+    <div class="kpis" style="grid-template-columns:repeat(5,1fr)">
+      <div class="kpi"><div class="l">Women as a share of candidates</div><div class="v">11.3<span class="u"> &rarr; </span>13.3<span class="u">%</span></div></div>
+      <div class="kpi"><div class="l">Women as a share of winners</div><div class="v" style="color:#C62828">13.6<span class="u"> &rarr; </span>12.6<span class="u">%</span></div></div>
+      <div class="kpi"><div class="l">Average age of winners</div><div class="v">54.5<span class="u"> &rarr; </span>51.7</div></div>
+      <div class="kpi"><div class="l">TMC seats in ST constituencies</div><div class="v" style="color:#C62828">9<span class="u"> &rarr; </span>0</div></div>
+      <div class="kpi"><div class="l">Youngest winner, 2026</div><div class="v">27</div></div>
+    </div>
+    <div class="g3 tall">
+      <div class="card"><div class="ct">More women contested. Fewer won.</div>
+        <div class="cs">Share of candidates against share of winners</div><div id="women"></div>
+        <div class="note"><b>The lines cross.</b> Women went from 11.3% to 13.3% of the field, but from 13.6% down to 12.6% of those elected.</div></div>
+      <div class="card"><div class="ct">Women candidates by party</div><div class="cs">Share of each party&rsquo;s field</div><div id="wparty"></div></div>
+      <div class="card"><div class="ct">The new house is younger</div>
+        <div class="cs">Age of winning candidates</div>
+        <svg id="age" width="100%" height="235" viewBox="0 0 440 235"></svg>
+        <div class="note">Average winner age fell 2.8 years while the candidate pool aged slightly &mdash; the wave replaced incumbents with younger challengers.</div></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="ct">Reserved seats moved further than general ones</div>
+      <div class="cs">Seats won by category &middot; GEN, SC and ST constituencies</div><div id="reserved"></div></div>
+    <div class="slic"><div class="sl">Region: <b>All</b> &#9662;</div><div class="sl">Party: <b>All</b> &#9662;</div></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 6 ============ -->
+<div class="page" id="p6">
+  <div class="nav"><div class="brand">WEST BENGAL ASSEMBLY<span>2021 vs 2026</span></div>
+    <div class="tabs"><div class="tab">Result</div><div class="tab">Swing &amp; Geography</div><div class="tab">Turnout</div><div class="tab">The Contest</div><div class="tab">Representation</div><div class="tab on">Explorer</div></div>
+    <div class="src">SOURCE: ELECTION COMMISSION OF INDIA</div></div>
+  <div class="wrap" style="padding-top:16px">
+    <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center">
+      <div class="sl" style="min-width:210px">Search constituency&hellip;</div>
+      <div class="sl">Region: <b>All</b> &#9662;</div><div class="sl">District: <b>All</b> &#9662;</div>
+      <div class="sl">Outcome: <b>All</b> &#9662;</div><div class="sl">Reservation: <b>All</b> &#9662;</div>
+      <div class="sl" style="margin-left:auto">Sort: <b>Margin, ascending</b> &#9662;</div>
+    </div>
+    <div class="card"><div class="ct">Constituency explorer</div>
+      <div class="cs">All 293 seats that polled &middot; click any row to drill through to its full result</div>
+      <table id="expl"></table></div>
+    <div class="g2" style="margin-top:14px">
+      <div class="card" style="padding:14px 18px"><div class="ct" style="font-size:13px">Drill-through: constituency detail</div>
+        <div class="cs">Selecting a row opens every candidate, both years</div>
+        <table><tr><th>Candidate</th><th>Party</th><th style="text-align:right">Votes</th><th style="text-align:right">%</th></tr>
+        <tr><td>Dadhiram Ray</td><td><span class="chip" style="background:#EC7000"></span>BJP</td><td class="n">119,109</td><td class="n">54.4</td></tr>
+        <tr><td>Adhikary Paresh Chandra</td><td><span class="chip" style="background:#1E7A4F"></span>TMC</td><td class="n">89,525</td><td class="n">40.9</td></tr>
+        <tr><td>Kamal Kumar Roy</td><td><span class="chip" style="background:#C62828"></span>CPI(M)</td><td class="n">2,386</td><td class="n">1.1</td></tr>
+        <tr><td>NOTA</td><td><span class="chip" style="background:#B8B6B0"></span>&mdash;</td><td class="n">2,126</td><td class="n">1.0</td></tr></table></div>
+      <div class="card" style="padding:14px 18px"><div class="ct" style="font-size:13px">Data quality notes surfaced in the report</div>
+        <div class="cs">Documented rather than hidden</div>
+        <table><tr><th>Note</th><th style="text-align:right">Affected</th></tr>
+        <tr><td>Falta held no poll in 2026 &mdash; excluded throughout</td><td class="n">1 seat</td></tr>
+        <tr><td>One person won two seats (vacates one)</td><td class="n">2 people</td></tr>
+        <tr><td>Different people sharing a name</td><td class="n">2 pairs</td></tr>
+        <tr><td><code>CPIM</code> folded into <code>CPI(M)</code></td><td class="n">3 rows</td></tr>
+        <tr><td>Turnout runs 0.13pt under the ECI figure (rejected votes)</td><td class="n">all seats</td></tr></table></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const O="#EC7000",G="#1E7A4F",B="#2a78d6",GR="#B8B6B0";
+fetch("data.json").then(r=>r.json()).then(D=>{
+const RC=D.region_cols, ri=k=>RC.indexOf(k);
+
+// vote share comparison
+const p21=Object.fromEntries(D.parties["2021"].map(r=>[r[0],r])), p26=Object.fromEntries(D.parties["2026"].map(r=>[r[0],r]));
+const names=["BJP","TMC","CPI(M)","INC"];
+document.getElementById("vcmp").innerHTML=names.map(n=>{
+ const a=p21[n]?p21[n][1]:0,b=p26[n]?p26[n][1]:0,c=n=="BJP"?O:n=="TMC"?G:n=="CPI(M)"?"#C62828":"#1976D2";
+ return `<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between"><span class="lab">${n}</span><span class="mono">${a}% &rarr; ${b}%</span></div>
+ <div style="display:flex;gap:3px;margin-top:3px"><div style="height:10px;width:${a/50*100}%;background:${c};opacity:.4;border-radius:2px"></div></div>
+ <div style="display:flex;gap:3px;margin-top:2px"><div style="height:10px;width:${b/50*100}%;background:${c};border-radius:2px"></div></div></div>`}).join("")
+ +`<div class="mono" style="margin-top:8px"><span style="display:inline-block;width:8px;height:8px;background:#5C5470;opacity:.4;border-radius:2px;margin-right:4px"></span>2021<span style="display:inline-block;width:8px;height:8px;background:#5C5470;border-radius:2px;margin:0 4px 0 12px"></span>2026</div>`;
+
+document.getElementById("scmp").innerHTML=names.map(n=>{
+ const a=p21[n]?p21[n][2]:0,b=p26[n]?p26[n][2]:0,c=n=="BJP"?O:n=="TMC"?G:n=="CPI(M)"?"#C62828":"#1976D2";
+ return `<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between"><span class="lab">${n}</span><span class="mono">${a} &rarr; ${b}</span></div>
+ <div><div style="height:10px;width:${a/215*100}%;background:${c};opacity:.4;border-radius:2px;margin-top:3px"></div>
+ <div style="height:10px;width:${b/215*100}%;background:${c};border-radius:2px;margin-top:2px"></div></div></div>`}).join("");
+
+// closest
+document.getElementById("closest").innerHTML="<tr><th>Seat</th><th>Won by</th><th style='text-align:right'>Margin</th><th style='text-align:right'>%</th></tr>"+
+ D.closest.map(r=>`<tr><td>${r[0]}</td><td><span class="chip" style="background:${r[2]=="BJP"?O:G}"></span>${r[2]}</td><td class="n">${(+r[3]).toLocaleString()}</td><td class="n">${r[4]}</td></tr>`).join("");
+
+// histogram both years
+(function(){const W=760,H=176,P={l:34,r:8,t:8,b:26};
+ const bin=a=>{const c=new Array(14).fill(0);a.forEach(v=>{const i=Math.min(13,Math.floor(v/5));c[i]++});return c};
+ const c21=bin(D.margins21),c26=bin(D.margins26),mx=Math.max(...c21,...c26);
+ const bw=(W-P.l-P.r)/14;let s="";
+ for(let i=0;i<14;i++){const x=P.l+i*bw;
+  const h1=(H-P.t-P.b)*c21[i]/mx,h2=(H-P.t-P.b)*c26[i]/mx;
+  s+=`<rect x="${x+2}" y="${H-P.b-h1}" width="${bw/2-2}" height="${h1}" fill="${i<3?O:GR}" opacity=".45"/>`;
+  s+=`<rect x="${x+bw/2}" y="${H-P.b-h2}" width="${bw/2-2}" height="${h2}" fill="${i<3?O:GR}"/>`;
+  if(i%2==0)s+=`<text x="${x+bw/2}" y="${H-8}" font-size="9" fill="#5C5470" text-anchor="middle" font-family="IBM Plex Mono">${i*5}</text>`}
+ s+=`<line x1="${P.l+3*bw}" y1="${P.t}" x2="${P.l+3*bw}" y2="${H-P.b}" stroke="#52514e" stroke-dasharray="3,3"/>`;
+ s+=`<text x="${P.l+3*bw+6}" y="${P.t+11}" font-size="10" fill="#52514e">15pt &mdash; a 7.4pt swing puts everything left of this in play</text>`;
+ s+=`<text x="${P.l-6}" y="${P.t+9}" font-size="9" fill="#5C5470" text-anchor="end" font-family="IBM Plex Mono">${mx}</text>`;
+ document.getElementById("hist").innerHTML=s})();
+
+// regional swing, TMC + BJP
+document.getElementById("swing").innerHTML=D.regions.map(r=>{
+ const sw=r[ri("swing")],bj=(r[ri("bjpvs26")]-r[ri("bjpvs21")]).toFixed(1);
+ return `<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px">${r[0]}</span><span class="mono">TMC ${sw} &middot; BJP +${bj}</span></div>
+ <div style="display:flex;align-items:center;gap:2px;margin-top:3px">
+  <div style="flex:1;display:flex;justify-content:flex-end"><div style="height:9px;width:${Math.abs(sw)/15*100}%;background:${G};border-radius:2px 0 0 2px"></div></div>
+  <div style="width:1px;height:13px;background:#8B82A1"></div>
+  <div style="flex:1"><div style="height:9px;width:${bj/15*100}%;background:${O};border-radius:0 2px 2px 0"></div></div></div></div>`}).join("");
+
+// seats by region
+document.getElementById("regseats").innerHTML="<table><tr><th>Region</th><th style='text-align:right'>BJP 21</th><th style='text-align:right'>BJP 26</th><th style='text-align:right'>TMC 21</th><th style='text-align:right'>TMC 26</th></tr>"+
+ D.regions.map(r=>`<tr><td>${r[0]}</td><td class="n" style="opacity:.55">${r[ri("bjp21")]}</td><td class="n" style="font-weight:700;color:${O}">${r[ri("bjp26")]}</td><td class="n" style="opacity:.55">${r[ri("tmc21")]}</td><td class="n" style="font-weight:700;color:${G}">${r[ri("tmc26")]}</td></tr>`).join("")+"</table>";
+
+// district table
+document.getElementById("dist").innerHTML="<tr><th>District</th><th>Region</th><th style='text-align:right'>Seats</th><th>2021</th><th>2026</th><th></th><th style='text-align:right'>Roll %</th><th style='text-align:right'>Turnout pts</th></tr>"+
+ D.districts.slice(0,12).map(r=>{const f=r[3]!=r[4];
+ return `<tr><td style="font-weight:600">${r[0]}</td><td style="color:#5C5470">${r[1]}</td><td class="n">${r[2]}</td>
+ <td><span class="chip" style="background:${r[3]=="BJP"?O:r[3]=="TMC"?G:GR}"></span>${r[3]}</td>
+ <td><span class="chip" style="background:${r[4]=="BJP"?O:r[4]=="TMC"?G:GR}"></span>${r[4]}</td>
+ <td><span class="pill ${f?"flip":"held"}">${f?"FLIPPED":"HELD"}</span></td>
+ <td class="n" style="color:${r[5]<-10?O:"#191527"}">${r[5]}</td><td class="n">+${r[6]}</td></tr>`}).join("")
+ +`<tr><td colspan="8" style="color:#5C5470;font-size:10.5px;padding-top:8px">11 more districts &mdash; scroll</td></tr>`;
+
+// scatter
+(function(){const W=860,H=268,P={l:44,r:14,t:12,b:30},pts=D.scatter;
+ const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+ const x0=Math.min(...xs),x1=Math.max(...xs),y1=Math.max(...ys);
+ const X=v=>P.l+(v-x0)/(x1-x0)*(W-P.l-P.r),Y=v=>H-P.b-v/y1*(H-P.t-P.b);let s="";
+ for(let g=-40;g<=0;g+=10)s+=`<line x1="${X(g)}" y1="${P.t}" x2="${X(g)}" y2="${H-P.b}" stroke="#F0EEF4"/><text x="${X(g)}" y="${H-P.b+15}" font-size="9.5" fill="#5C5470" text-anchor="middle" font-family="IBM Plex Mono">${g}%</text>`;
+ for(let g=0;g<=35;g+=10)s+=`<line x1="${P.l}" y1="${Y(g)}" x2="${W-P.r}" y2="${Y(g)}" stroke="#F0EEF4"/><text x="${P.l-7}" y="${Y(g)+3}" font-size="9.5" fill="#5C5470" text-anchor="end" font-family="IBM Plex Mono">${g}</text>`;
+ pts.forEach(p=>s+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3.3" fill="${B}" opacity=".55" stroke="#fff" stroke-width=".6"/>`);
+ const n=pts.length,mx=xs.reduce((a,b)=>a+b)/n,my=ys.reduce((a,b)=>a+b)/n;
+ const sl=pts.reduce((a,p)=>a+(p[0]-mx)*(p[1]-my),0)/pts.reduce((a,p)=>a+(p[0]-mx)**2,0);
+ s+=`<line x1="${X(x0)}" y1="${Y(my+sl*(x0-mx))}" x2="${X(x1)}" y2="${Y(my+sl*(x1-mx))}" stroke="${O}" stroke-width="2.2"/>`;
+  document.getElementById("sc").innerHTML=s})();
+
+// turnout by region
+document.getElementById("turn").innerHTML=D.regions.map(r=>{
+ const a=r[ri("turn21")],b=r[ri("turn26")],roll=r[ri("roll")],B0=70,SP=30;
+ return `<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between"><span style="font-size:11px">${r[0]}</span><span class="mono">${a}% &rarr; ${b}% <span style="color:${O}">roll ${roll}%</span></span></div>
+ <div style="height:9px;background:#F0EEF4;border-radius:2px;margin-top:3px;position:relative">
+  <div style="position:absolute;left:0;height:9px;width:${(a-B0)/SP*100}%;background:${GR};border-radius:2px"></div>
+  <div style="position:absolute;left:${(a-B0)/SP*100}%;height:9px;width:${(b-a)/SP*100}%;background:${O};border-radius:0 2px 2px 0"></div></div></div>`}).join("")
+ +`<div class="note">Bars start at 70%.</div>`;
+
+// decomposition
+(function(){const d=D.decomp,W=340;
+ const rows=[["2021 turnout",d.base,GR],["2026 on the 2021 roll",d.counterf,B],["2026 as reported",d.actual,O]];
+ document.getElementById("decomp").innerHTML=rows.map(([l,v,c])=>`
+  <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:3px">
+   <span style="font-size:11.5px">${l}</span><span class="mono" style="font-size:13px;font-weight:600;color:${c}">${v}%</span></div>
+  <div style="height:13px;background:#F0EEF4;border-radius:2px"><div style="height:13px;width:${(v-75)/20*100}%;background:${c};border-radius:2px"></div></div></div>`).join("")
+ +`<div style="border-top:1px solid #E4E0EC;margin-top:14px;padding-top:12px">
+   <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:6px"><span>Rise from more votes cast</span><span class="mono" style="color:${B};font-weight:600">+5.0 pts</span></div>
+   <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:6px"><span>Rise from the roll shrinking</span><span class="mono" style="color:${O};font-weight:600">+6.5 pts</span></div>
+   <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;border-top:1px solid #F0EEF4;padding-top:6px"><span>Total</span><span class="mono">+11.4 pts</span></div></div>
+  <div class="note"><b>57% of the apparent rise is the denominator.</b> Votes cast went up 6.1%; the register fell 6.9%.</div>`})();
+
+// roll change histogram
+(function(){const W=700,H=150,P={l:30,r:8,t:8,b:24},a=D.rollhist;
+ const lo=-40,hi=6,nb=23,bw=(hi-lo)/nb,c=new Array(nb).fill(0);
+ a.forEach(v=>{const i=Math.max(0,Math.min(nb-1,Math.floor((v-lo)/bw)));c[i]++});
+ const mx=Math.max(...c),pw=(W-P.l-P.r)/nb;let s="";
+ for(let i=0;i<nb;i++){const x=P.l+i*pw,h=(H-P.t-P.b)*c[i]/mx,neg=lo+i*bw<0;
+  s+=`<rect x="${x+1}" y="${H-P.b-h}" width="${pw-2}" height="${h}" fill="${neg?O:GR}" rx="1.5"/>`}
+ const zx=P.l+((0-lo)/(hi-lo))*(W-P.l-P.r);
+ s+=`<line x1="${zx}" y1="${P.t}" x2="${zx}" y2="${H-P.b}" stroke="#52514e" stroke-dasharray="3,3"/>`;
+ s+=`<text x="${zx+5}" y="${P.t+10}" font-size="9.5" fill="#52514e">no change</text>`;
+ [-40,-30,-20,-10,0].forEach(g=>{const x=P.l+((g-lo)/(hi-lo))*(W-P.l-P.r);
+  s+=`<text x="${x}" y="${H-7}" font-size="9" fill="#5C5470" text-anchor="middle" font-family="IBM Plex Mono">${g}%</text>`});
+ document.getElementById("rh").innerHTML=s})();
+
+// ---- page 4 ----
+(function(){const s=D.splits;
+ document.getElementById("splits").innerHTML=s.map(r=>{const y=r[0],n=r[2],p=r[3];
+  return `<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:4px">
+   <span class="lab">${y}</span><span class="mono">${n} of ${r[1]} &middot; ${p}%</span></div>
+   <div style="height:15px;background:#F0EEF4;border-radius:2px"><div style="height:15px;width:${p}%;background:${y==2021?GR:O};border-radius:2px"></div></div></div>`}).join("");
+ const ct=D.contest,dp=D.deposit;
+ document.getElementById("contest").innerHTML=ct.map((r,i)=>`
+  <div style="margin-bottom:13px"><div style="display:flex;justify-content:space-between;margin-bottom:4px">
+   <span class="lab">${r[0]}</span><span class="mono">${r[3]} per seat &middot; ${r[2]} parties</span></div>
+   <div style="height:15px;background:#F0EEF4;border-radius:2px"><div style="height:15px;width:${r[3]/12*100}%;background:${i?B:GR};border-radius:2px"></div></div>
+   <div class="mono" style="margin-top:4px">deposit lost: <b style="color:${i?O:"#5C5470"}">${dp[i][1]}%</b> (${dp[i][2]} of ${dp[i][3]})</div></div>`).join("");
+ document.getElementById("notap").innerHTML=D.nota.map((r,i)=>`
+  <div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;margin-bottom:4px">
+   <span class="lab">${r[0]}</span><span class="mono">${r[1]}% &middot; ${r[3]} seats over margin</span></div>
+   <div style="height:13px;background:#F0EEF4;border-radius:2px"><div style="height:13px;width:${r[1]/1.3*100}%;background:${i?O:GR};border-radius:2px"></div></div></div>`).join("");
+ document.getElementById("notat").innerHTML="<tr><th>Highest NOTA, 2026</th><th style='text-align:right'>%</th></tr>"+
+  D.nota_top.slice(0,5).map(r=>`<tr><td>${r[0]}</td><td class="n">${r[3]}</td></tr>`).join("");
+ // wide margin histogram
+ const W=1500,H=330,P={l:38,r:10,t:14,b:30};
+ const bin=a=>{const c=new Array(20).fill(0);a.forEach(v=>{const i=Math.min(19,Math.floor(v/3.5));c[i]++});return c};
+ const a1=bin(D.margins21),a2=bin(D.margins26),mx=Math.max(...a1,...a2),bw=(W-P.l-P.r)/20;let q="";
+ for(let i=0;i<20;i++){const x=P.l+i*bw;
+  q+=`<rect x="${x+3}" y="${H-P.b-(H-P.t-P.b)*a1[i]/mx}" width="${bw/2-3}" height="${(H-P.t-P.b)*a1[i]/mx}" fill="${GR}" rx="1.5"/>`;
+  q+=`<rect x="${x+bw/2}" y="${H-P.b-(H-P.t-P.b)*a2[i]/mx}" width="${bw/2-3}" height="${(H-P.t-P.b)*a2[i]/mx}" fill="${O}" rx="1.5"/>`;
+  if(i%2==0)q+=`<text x="${x+bw/2}" y="${H-8}" font-size="9.5" fill="#5C5470" text-anchor="middle" font-family="IBM Plex Mono">${(i*3.5).toFixed(0)}%</text>`}
+ q+=`<text x="${W-P.r}" y="${P.t+10}" font-size="10.5" fill="#5C5470" text-anchor="end"><tspan fill="${GR}">&#9632;</tspan> 2021  <tspan fill="${O}">&#9632;</tspan> 2026</text>`;
+ document.getElementById("hist2").innerHTML=q})();
+
+// ---- page 5 ----
+(function(){const w=D.women_summary;
+ document.getElementById("women").innerHTML=`
+  <div style="display:flex;gap:26px;margin:6px 0 14px">
+  ${w.map(r=>`<div style="flex:1"><div class="mono" style="font-size:11px;color:#5C5470;margin-bottom:7px">${r[0]}</div>
+   <div style="font-size:11px;margin-bottom:3px">candidates <b class="mono">${r[1]}%</b></div>
+   <div style="height:12px;background:#F0EEF4;border-radius:2px"><div style="height:12px;width:${r[1]/16*100}%;background:${B};border-radius:2px"></div></div>
+   <div style="font-size:11px;margin:8px 0 3px">winners <b class="mono">${r[2]}%</b></div>
+   <div style="height:12px;background:#F0EEF4;border-radius:2px"><div style="height:12px;width:${r[2]/16*100}%;background:${O};border-radius:2px"></div></div>
+   <div class="mono" style="margin-top:7px;font-size:10px">${r[3]} contested &middot; ${r[4]} won</div></div>`).join("")}</div>`;
+ document.getElementById("wparty").innerHTML=D.women_party.map(r=>{
+  const a=(100*r[1]/r[2]).toFixed(1),b=(100*r[3]/r[4]).toFixed(1),c=r[0]=="BJP"?O:r[0]=="TMC"?G:r[0]=="CPI(M)"?"#C62828":"#1976D2";
+  return `<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between"><span class="lab">${r[0]}</span><span class="mono">${a}% &rarr; ${b}%</span></div>
+  <div style="height:10px;width:${a/22*100}%;background:${c};opacity:.4;border-radius:2px;margin-top:3px"></div>
+  <div style="height:10px;width:${b/22*100}%;background:${c};border-radius:2px;margin-top:2px"></div></div>`}).join("");
+ // age
+ const W=440,H=235,P={l:30,r:8,t:10,b:28},bin=a=>{const c=new Array(13).fill(0);a.forEach(v=>{const i=Math.max(0,Math.min(12,Math.floor((v-25)/5)));c[i]++});return c};
+ const a1=bin(D.age_hist["2021"]),a2=bin(D.age_hist["2026"]),mx=Math.max(...a1,...a2),bw=(W-P.l-P.r)/13;let s="";
+ for(let i=0;i<13;i++){const x=P.l+i*bw;
+  s+=`<rect x="${x+2}" y="${H-P.b-(H-P.t-P.b)*a1[i]/mx}" width="${bw/2-2}" height="${(H-P.t-P.b)*a1[i]/mx}" fill="${GR}" rx="1.5"/>`;
+  s+=`<rect x="${x+bw/2}" y="${H-P.b-(H-P.t-P.b)*a2[i]/mx}" width="${bw/2-2}" height="${(H-P.t-P.b)*a2[i]/mx}" fill="${O}" rx="1.5"/>`;
+  if(i%3==0)s+=`<text x="${x+bw/2}" y="${H-8}" font-size="9" fill="#5C5470" text-anchor="middle" font-family="IBM Plex Mono">${25+i*5}</text>`}
+ s+=`<text x="${W-P.r}" y="${P.t+9}" font-size="9.5" fill="#5C5470" text-anchor="end"><tspan fill="${GR}">&#9632;</tspan> 2021 <tspan fill="${O}">&#9632;</tspan> 2026</text>`;
+ document.getElementById("age").innerHTML=s;
+ // reserved
+ document.getElementById("reserved").innerHTML='<table><tr><th>Category</th><th style="text-align:right">Seats</th><th style="text-align:right">BJP 2021</th><th style="text-align:right">BJP 2026</th><th style="text-align:right">TMC 2021</th><th style="text-align:right">TMC 2026</th><th>Shift</th></tr>'+
+  D.reserved.map(r=>{const lab=r[0]=="GEN"?"General":r[0]=="SC"?"Scheduled Caste":"Scheduled Tribe";
+   return `<tr><td style="font-weight:600">${lab}</td><td class="n">${r[1]}</td>
+   <td class="n" style="opacity:.55">${r[2]}</td><td class="n" style="font-weight:700;color:${O}">${r[3]}</td>
+   <td class="n" style="opacity:.55">${r[4]}</td><td class="n" style="font-weight:700;color:${r[5]==0?"#C62828":G}">${r[5]}</td>
+   <td><div style="height:11px;background:#F0EEF4;border-radius:2px;width:320px"><div style="height:11px;width:${r[3]/r[1]*100}%;background:${O};border-radius:2px"></div></div></td></tr>`}).join("")+
+  '</table><div class="note"><b>TMC was wiped out in every Scheduled Tribe seat</b> &mdash; 9 down to 0 across all 16 ST constituencies contested in both years.</div>';})();
+
+// ---- page 6 ----
+document.getElementById("expl").innerHTML="<tr><th>AC</th><th>Constituency</th><th>District</th><th>Region</th><th>Cat</th><th>2021</th><th>2026</th><th>Winner</th><th style='text-align:right'>Margin</th><th style='text-align:right'>%</th><th style='text-align:right'>Turnout</th></tr>"+
+ D.explorer.map(r=>`<tr><td class="mono">${r[0]}</td><td style="font-weight:600">${r[1]}</td><td style="color:#5C5470">${r[2]}</td><td style="color:#5C5470">${r[3]}</td>
+ <td><span class="pill held">${r[4]}</span></td>
+ <td><span class="chip" style="background:${r[5]=="BJP"?O:r[5]=="TMC"?G:GR}"></span>${r[5]}</td>
+ <td><span class="chip" style="background:${r[6]=="BJP"?O:r[6]=="TMC"?G:GR}"></span>${r[6]}</td>
+ <td>${r[7]}</td><td class="n">${(+r[8]).toLocaleString()}</td><td class="n" style="color:${r[9]<1?"#C62828":"#191527"}">${r[9]}</td><td class="n">${r[10]}</td></tr>`).join("")
+ +'<tr><td colspan="11" style="color:#5C5470;font-size:10.5px;padding-top:8px">279 more rows</td></tr>';
+});
+</script></body></html>
