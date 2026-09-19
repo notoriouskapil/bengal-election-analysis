@@ -31,4 +31,5 @@ SELECT ac_no
 			   ,MAX(CASE WHEN year = 2026 THEN turnout_pct END) as turnout_pct_2026
 			   ,ROUND(MAX(CASE WHEN year = 2026 THEN turnout_pct END)-MAX(CASE WHEN year = 2021 THEN turnout_pct END),2) as turnout_pct_chng
  FROM combine
+ WHERE  ac_no<>144
 GROUP BY  ac_no ;

@@ -10,14 +10,14 @@ Python (pandas) · SQLite · Power BI
 **A 15-point vote swing produced a 135-seat reversal.** TMC's vote share went
 from 48.6% to 41.1%, BJP's from 38.4% to 46.2%. Seats went from TMC 215 / BJP 77
 to BJP 207 / TMC 80. Under first-past-the-post a swing concentrated near the
-margin flips a lot of seats at once — BJP took 46% of the vote and 71% of
+margin flips a lot of seats at once. BJP took 46% of the vote and 71% of
 the seats.
 
 **Not one seat flipped against the tide.** 129 seats went TMC to BJP. Zero went
 BJP to TMC.
 
 **Most of the turnout "rise" is arithmetic.** Turnout reads 93.6% against 82.2%
-in 2021, but the electoral roll shrank about 6% — 241 of 293 seats lost voters
+in 2021, but the electoral roll shrank about 6%: 241 of 293 seats lost voters
 from the register. The regions where the roll shrank most are the regions where
 turnout rose most: Kolkata & Howrah lost 16.7% of its electorate and gained 19.5
 points of turnout, while Jangalmahal lost 0.7% and gained 7.6. A smaller
@@ -69,7 +69,7 @@ joined in already.
 
 ## Before you query
 
-Join on `ac_no`, never on name — constituency names match 0 of 294 across the
+Join on `ac_no`, never on name. Constituency names match 0 of 294 across the
 two years, and Bishnupur is two different seats.
 
 Filter `seat_status`. Falta held no poll in 2026, so it's 293 seats that year,
@@ -84,7 +84,7 @@ Nine problems in the source data, all corrected in `clean.py` and written up in
 [docs/data_quality.md](docs/data_quality.md). Two worth knowing about here:
 
 The 2021 party column contains both `CPI(M)` (139 rows) and `CPIM` (3 rows).
-Nothing errors — it just splits the party in two in any aggregation.
+Nothing errors; it just splits the party in two in any aggregation.
 
 One candidate is named `Arup Roy, S/o Late Prabhat Roy`. That comma shifted his
 row's columns under naive parsing, which put his party in the wrong field and

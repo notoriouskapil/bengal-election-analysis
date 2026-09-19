@@ -1,4 +1,4 @@
---5) What was TMC's vote share in each region in 2021 and in 2026, and how much did it change
+-- 5) What was TMC's vote share in each region in 2021 and in 2026, and how much did it change
 
 with base as (
 SELECT  c.region,r.*
@@ -29,6 +29,6 @@ JOIN tmc_votes_region t on t.region = r.region  AND  t.year = r.year
 SELECT  region
                 ,ROUND( MAX(CASE WHEN year =2021 THEN vote_per_region  END  ),2) as vote_pct_2021
 				,ROUND(MAX(CASE WHEN year =2026 THEN vote_per_region   END) ,2)as vote_pct_2026
-				,ROUND((MAX(CASE WHEN year =2021 THEN vote_per_region   END)-MAX(CASE WHEN year =2026 THEN vote_per_region   END) ),2) as pct_change
+				,ROUND((MAX(CASE WHEN year =2026 THEN vote_per_region   END)-MAX(CASE WHEN year =2021 THEN vote_per_region   END) ),2) as pct_change
 FROM  combined
 GROUP BY region;

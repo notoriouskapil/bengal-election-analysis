@@ -4,7 +4,7 @@ Source: ECI statistical reports, West Bengal Legislative Assembly 2021 and 2026,
 downloaded 7 May 2026.
 
 Everything below was found by profiling the raw workbooks. All of it is handled
-in `src/clean.py`. The first two are the ones that matter — they produce wrong
+in `src/clean.py`. The first two are the ones that matter: they produce wrong
 answers rather than errors.
 
 ## Two labels for one party
@@ -26,7 +26,7 @@ Parties Participated), so don't claim a party emerged or vanished on this data.
 93.6% in 2026 against 82.2% in 2021, with the electorate down from roughly 73.2M
 to 68.1M. Rolls don't shrink 6% in five years on their own.
 
-This isn't a bug in the pipeline — the ECI's own Highlight report states 93.71%.
+This isn't a bug in the pipeline. The ECI's own Highlight report states 93.71%.
 The roll contraction tracks the turnout rise closely by region, which points to a
 revision of the electoral register rather than a surge in participation.
 
@@ -43,7 +43,7 @@ The tag is parsed into `reservation` / `is_reserved`, the name normalised, and
 
 ## Names aren't unique within a year either
 
-`Bishnupur` is two constituencies — `ac_no` 146 in South 24 Parganas and 255 in
+`Bishnupur` is two constituencies: `ac_no` 146 in South 24 Parganas and 255 in
 Bankura. So `ac_name` isn't a key even within one election.
 
 ## A candidate name isn't a person
@@ -55,7 +55,7 @@ Bankura. So `ac_name` isn't a key even within one election.
 | 2026 | Adhikari Suvendu | 57, 57 | one person, two seats |
 | 2026 | Humayun Kabir | 63, 63 | one person, two seats |
 
-Winning two seats is legal — the winner vacates one within 14 days. So 293 seats
+Winning two seats is legal; the winner vacates one within 14 days. So 293 seats
 in 2026 have 290 distinct winners. Seat counts and people counts are different
 numbers.
 
@@ -63,7 +63,7 @@ All eight rows are in `data/clean/name_flags.csv`.
 
 I didn't attempt cross-year candidate tracking. Even after normalising case and
 word order only about 543 of 2,079 names match, and matching on name alone
-fans out — joining 2026 winners to 2021 candidates by name returns 300 rows for
+fans out. Joining 2026 winners to 2021 candidates by name returns 300 rows for
 293 seats.
 
 ## One seat held no poll
@@ -72,7 +72,7 @@ Falta (`ac_no` 144) has no 2026 result, just a zero-vote NOTA row. The ECI
 Highlight report independently counts 293 constituencies, so this is a genuine
 countermanded poll.
 
-Recorded in `seat_status.csv` as `no_poll`. Worth excluding deliberately — left
+Recorded in `seat_status.csv` as `no_poll`. Worth excluding deliberately. Left
 in, it reads as a seat where turnout fell 87 points, which drags any average.
 
 ## Margin was measured against the wrong denominator
@@ -85,7 +85,7 @@ Both are kept now, named `margin_pct_polled` and `margin_pct_electors`.
 
 ## Serial prefixes and one awkward comma
 
-Candidate names come through as `1 Dadhiram Ray` — a ballot serial that needs
+Candidate names come through as `1 Dadhiram Ray`, a ballot serial that needs
 stripping. And one 2021 name contains a comma: `Arup Roy, S/o Late Prabhat Roy`.
 
 That comma matters. Split naively, it shifts every column after it one to the
@@ -94,7 +94,7 @@ count read 214 instead of 215.
 
 ## NOTA was sitting in the candidate table
 
-294 NOTA rows per year with null gender, age and category — which was the whole
+294 NOTA rows per year with null gender, age and category, which was the whole
 of the dataset's apparent missing data. Now in `nota.csv`.
 
 ## Reconciling with the published totals
@@ -103,7 +103,7 @@ Both of these turned up when the assertions first ran, and both are properties o
 the source rather than mistakes.
 
 The ECI's elector total of 68,125,496 covers only the 293 seats that polled.
-All 294 comes to 68,362,033 — the difference is exactly Falta's 236,537.
+All 294 comes to 68,362,033. The difference is exactly Falta's 236,537.
 
 The ECI reports 63,842,843 votes polled; the Detailed Results workbook contains
 63,753,070. The 89,773 gap is rejected votes, which that workbook doesn't
@@ -122,7 +122,7 @@ above it. Worth stating whenever you quote a number.
 ## About the district mapping
 
 `data/lookups/constituencies.csv` maps all 294 seats to 23 districts and 8
-regions. No ECI workbook in this repo carries district — West Bengal numbers its
+regions. No ECI workbook in this repo carries district. West Bengal numbers its
 constituencies contiguously by district, so the mapping is derived from that and
 checked against the constituency names.
 
