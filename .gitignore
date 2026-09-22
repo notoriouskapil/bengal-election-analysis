@@ -4,6 +4,9 @@ venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-*.db-journal
 
-.DS_Store
+# build artifacts — rebuild with src/load_db.py and src/make_deck.py,
+# or download from the latest release
+*.db
+*.db-journal
+*.pptx

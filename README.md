@@ -57,8 +57,8 @@ haven't found, so I've left it as an open question rather than guessing.
 
 Vote share here is a percentage of valid votes, NOTA excluded.
 
-There's a slide deck in the repo (`Bengal_2021_vs_2026.pptx`) walking through the
-same argument.
+There's a slide deck walking through the same argument, attached to the
+[latest release](../../releases/latest).
 
 ## Running it
 
@@ -67,6 +67,10 @@ pip install -r requirements.txt
 python src/clean.py     # raw workbooks -> data/clean/
 python src/load_db.py   # data/clean/  -> bengal_elections.db
 ```
+
+If you'd rather not run anything, the prebuilt database and the deck are
+attached to the [latest release](../../releases/latest). The seven CSVs under
+`data/clean/` are committed either way, so you can read those directly.
 
 `clean.py` asserts its own output against the totals the Commission publishes in
 its Highlight report, and exits non-zero if anything drifts:
